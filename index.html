@@ -119,7 +119,21 @@
   <!-- ======================================================== -->
   <!-- TOP ANNOUNCEMENT BAR                                     -->
   <!-- ======================================================== -->
-  
+  <div class="bg-regal-deepGreen text-regal-lightGold text-[11px] py-2 px-4 tracking-widest uppercase font-medium border-b border-regal-gold/20">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <span class="hidden md:inline-flex items-center gap-2">
+        <i class="fa-solid fa-gem text-regal-gold text-[10px]"></i> Handcrafted Royal Weaves &bull; Benares
+      </span>
+      <div class="mx-auto md:mx-0 text-center">
+        Complimentary Insured Courier on All Domestic Commissions
+      </div>
+      <div class="hidden md:flex items-center gap-4 text-[11px]">
+        <span>INR (₹)</span>
+        <span class="text-regal-sand/80">Heritage Suite</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ======================================================== -->
   <!-- PART A: RESPONSIVE HEADER                                -->
   <!-- ======================================================== -->
@@ -169,7 +183,7 @@
           </div>
 
           <!-- Wishlist Icon with Counter Badge -->
-          <div id="wishlistHeaderBtn" class="flex flex-col items-center text-regal-emerald hover:text-regal-gold transition p-2 relative cursor-pointer" title="Wishlist">
+          <button id="wishlistHeaderBtn" class="flex flex-col items-center text-regal-emerald hover:text-regal-gold transition p-2 relative" title="View Wishlist" aria-label="Open Wishlist">
             <div class="relative">
               <i class="fa-regular fa-heart text-lg"></i>
               <span id="wishlistCountBadge" class="absolute -top-1.5 -right-2.5 bg-regal-gold text-regal-deepGreen text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
@@ -177,7 +191,7 @@
               </span>
             </div>
             <span class="text-[9px] uppercase tracking-wider mt-0.5 font-medium hidden md:inline">Saved</span>
-          </div>
+          </button>
 
           <!-- Cart Icon with Drawer Trigger -->
           <button id="cartDrawerBtn" class="flex flex-col items-center text-regal-emerald hover:text-regal-gold transition p-2 relative" title="Shopping Bag">
@@ -235,6 +249,10 @@
         <a href="#tabs-section" class="mobile-nav-link py-2.5 border-b border-regal-sand/50 hover:text-regal-gold flex justify-between items-center">
           <span>Curated Silhouettes</span> <i class="fa-solid fa-arrow-right text-[10px] text-regal-gold"></i>
         </a>
+        <button id="mobileWishlistBtn" class="py-2.5 border-b border-regal-sand/50 hover:text-regal-gold flex justify-between items-center text-left text-xs uppercase tracking-widest font-medium text-regal-emerald">
+          <span class="flex items-center gap-2"><i class="fa-regular fa-heart text-regal-gold"></i> Saved Favorites</span>
+          <span id="mobileWishlistBadge" class="bg-regal-gold text-regal-deepGreen text-[10px] font-bold px-2 py-0.5 rounded-full">2</span>
+        </button>
         <a href="#categories" class="mobile-nav-link py-2.5 border-b border-regal-sand/50 hover:text-regal-gold flex justify-between items-center">
           <span>Categories</span> <i class="fa-solid fa-arrow-right text-[10px] text-regal-gold"></i>
         </a>
@@ -1201,190 +1219,304 @@
   </aside>
 
   <!-- ======================================================== -->
+  <!-- WISHLIST / FAVORITES DRAWER                              -->
+  <!-- ======================================================== -->
+  <div id="wishlistOverlay" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="wishlistDrawer" class="fixed top-0 right-0 w-full sm:w-96 max-w-full h-full bg-regal-ivory z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col justify-between">
+    
+    <div class="p-5 border-b border-regal-sand flex items-center justify-between bg-regal-cream">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-regal-emerald/10 flex items-center justify-center text-regal-emerald">
+          <i class="fa-solid fa-heart text-sm text-regal-gold"></i>
+        </div>
+        <div>
+          <h3 class="font-serif text-lg font-bold text-regal-emerald">Saved Favorites</h3>
+          <p class="text-[10px] uppercase tracking-widest text-regal-gold">Personal Bridal &amp; Festive Wishlist</p>
+        </div>
+      </div>
+      <button id="closeWishlistDrawer" class="text-regal-emerald hover:text-regal-gold text-2xl p-1" aria-label="Close Wishlist">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Wishlist items container -->
+    <div id="wishlistItemsContainer" class="p-5 overflow-y-auto flex-1 space-y-4">
+      <!-- Injected dynamically via JS -->
+    </div>
+
+    <!-- Footer actions of Wishlist -->
+    <div class="p-5 bg-regal-cream border-t border-regal-sand space-y-3">
+      <div class="flex items-center justify-between text-xs text-regal-muted">
+        <span>Saved Items</span>
+        <span id="wishlistSummaryCount" class="font-semibold text-regal-emerald">2 Items</span>
+      </div>
+      <button id="moveAllToCartBtn" class="w-full bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold py-3 rounded transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-bag-shopping text-xs text-regal-lightGold"></i>
+        <span>Move All to Bag</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ======================================================== -->
   <!-- JAVASCRIPT: CLEAN ARCHITECTURE & LOGIC                   -->
   <!-- ======================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
       // ----------------------------------------------------
-      // 1. MOBILE DRAWER NAVIGATION
+      // 5. WISHLIST / FAVORITES SYSTEM WITH SLIDE-OUT DRAWER
       // ----------------------------------------------------
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const closeMobileDrawer = document.getElementById('closeMobileDrawer');
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      const mobileDrawerOverlay = document.getElementById('mobileDrawerOverlay');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      const wishlistHeaderBtn = document.getElementById('wishlistHeaderBtn');
+      const mobileWishlistBtn = document.getElementById('mobileWishlistBtn');
+      const wishlistDrawer = document.getElementById('wishlistDrawer');
+      const wishlistOverlay = document.getElementById('wishlistOverlay');
+      const closeWishlistDrawer = document.getElementById('closeWishlistDrawer');
+      const wishlistItemsContainer = document.getElementById('wishlistItemsContainer');
+      const wishlistCountBadge = document.getElementById('wishlistCountBadge');
+      const mobileWishlistBadge = document.getElementById('mobileWishlistBadge');
+      const wishlistSummaryCount = document.getElementById('wishlistSummaryCount');
+      const moveAllToCartBtn = document.getElementById('moveAllToCartBtn');
+      const wishlistBtns = document.querySelectorAll('.wishlist-btn');
 
-      function openMenu() {
-        mobileDrawer.classList.remove('-translate-x-full');
-        mobileDrawerOverlay.classList.remove('opacity-0', 'pointer-events-none');
+      // Product catalog lookup data for accurate wishlist cards
+      const productCatalog = {
+        'prod-1': {
+          id: 'prod-1',
+          title: 'Noor-e-Benares Katan Saree',
+          price: 46500,
+          img: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80',
+          badge: 'Bestseller'
+        },
+        'prod-2': {
+          id: 'prod-2',
+          title: 'Gulrukh Silk Anarkali Set',
+          price: 32500,
+          img: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=700&q=80',
+          badge: 'Handcrafted'
+        },
+        'prod-3': {
+          id: 'prod-3',
+          title: 'Shehzadi Velvet Bridal Lehenga',
+          price: 155000,
+          img: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=700&q=80',
+          badge: 'Limited Edition'
+        },
+        'prod-4': {
+          id: 'prod-4',
+          title: 'Mumtaz Tissue Odhani Dupatta',
+          price: 19800,
+          img: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=700&q=80',
+          badge: 'Bestseller'
+        },
+        'prod-5': {
+          id: 'prod-5',
+          title: 'Jahanara Zari Mojari Slippers',
+          price: 8900,
+          img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80',
+          badge: 'Handcrafted'
+        },
+        'prod-6': {
+          id: 'prod-6',
+          title: 'Darbar Handspun Pashmina Shawl',
+          price: 64000,
+          img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80',
+          badge: 'Limited Edition'
+        }
+      };
+
+      // Default active favorites matching prod-3 and prod-6 pre-selected in HTML
+      let wishlistItems = [
+        productCatalog['prod-3'],
+        productCatalog['prod-6']
+      ];
+
+      function openWishlist() {
+        wishlistDrawer.classList.remove('translate-x-full');
+        wishlistOverlay.classList.remove('opacity-0', 'pointer-events-none');
         document.body.classList.add('overflow-hidden');
       }
 
-      function closeMenu() {
-        mobileDrawer.classList.add('-translate-x-full');
-        mobileDrawerOverlay.classList.add('opacity-0', 'pointer-events-none');
+      function closeWishlist() {
+        wishlistDrawer.classList.add('translate-x-full');
+        wishlistOverlay.classList.add('opacity-0', 'pointer-events-none');
         document.body.classList.remove('overflow-hidden');
       }
 
-      mobileMenuBtn?.addEventListener('click', openMenu);
-      closeMobileDrawer?.addEventListener('click', closeMenu);
-      mobileDrawerOverlay?.addEventListener('click', closeMenu);
-      mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-      // Mobile Search Toggle
-      const mobileSearchBtn = document.getElementById('mobileSearchBtn');
-      const mobileSearchBar = document.getElementById('mobileSearchBar');
-      mobileSearchBtn?.addEventListener('click', () => {
-        mobileSearchBar.classList.toggle('hidden');
+      wishlistHeaderBtn?.addEventListener('click', openWishlist);
+      mobileWishlistBtn?.addEventListener('click', () => {
+        closeMenu();
+        openWishlist();
       });
+      closeWishlistDrawer?.addEventListener('click', closeWishlist);
+      wishlistOverlay?.addEventListener('click', closeWishlist);
 
-      // ----------------------------------------------------
-      // 2. PART B: MUGHAL ARCH ACTIVE TABS
-      // ----------------------------------------------------
-      const tabs = document.querySelectorAll('.category-tab');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => {
-            t.classList.remove('bg-regal-emerald', 'text-white', 'border-b-2', 'border-regal-gold', 'shadow-arch', '-translate-y-1');
-            t.classList.add('bg-regal-cream', 'text-regal-emerald', 'hover:bg-regal-sand/70');
-            const svg = t.querySelector('svg');
-            if (svg) {
-              svg.classList.add('text-regal-gold/50');
-              svg.classList.remove('text-regal-gold');
-            }
-          });
+      function updateWishlistCardHearts() {
+        wishlistBtns.forEach(btn => {
+          const id = btn.getAttribute('data-id');
+          const heartIcon = btn.querySelector('i');
+          const isFavorited = wishlistItems.some(item => item.id === id);
 
-          tab.classList.remove('bg-regal-cream', 'text-regal-emerald', 'hover:bg-regal-sand/70');
-          tab.classList.add('bg-regal-emerald', 'text-white', 'border-b-2', 'border-regal-gold', 'shadow-arch', '-translate-y-1');
-          const activeSvg = tab.querySelector('svg');
-          if (activeSvg) {
-            activeSvg.classList.remove('text-regal-gold/50');
-            activeSvg.classList.add('text-regal-gold');
+          if (isFavorited) {
+            btn.classList.add('active');
+            heartIcon.classList.remove('fa-regular');
+            heartIcon.classList.add('fa-solid', 'text-red-600');
+          } else {
+            btn.classList.remove('active');
+            heartIcon.classList.remove('fa-solid', 'text-red-600');
+            heartIcon.classList.add('fa-regular');
           }
         });
-      });
-
-      // ----------------------------------------------------
-      // 3. PART C: AUTO-SLIDING BANNER
-      // ----------------------------------------------------
-      const slides = document.querySelectorAll('.slide');
-      const dots = document.querySelectorAll('.slider-dot');
-      const desktopPrev = document.getElementById('desktopPrevSlide');
-      const desktopNext = document.getElementById('desktopNextSlide');
-      const mobilePrev = document.getElementById('mobilePrevSlide');
-      const mobileNext = document.getElementById('mobileNextSlide');
-      const sliderWrapper = document.getElementById('sliderWrapper');
-      let currentSlide = 0;
-      let slideInterval = null;
-      const totalSlides = slides.length;
-
-      function goToSlide(index) {
-        slides[currentSlide].classList.remove('opacity-100');
-        slides[currentSlide].classList.add('opacity-0', 'pointer-events-none');
-        dots[currentSlide].classList.remove('w-7', 'bg-regal-gold');
-        dots[currentSlide].classList.add('w-2', 'bg-white/40');
-
-        currentSlide = (index + totalSlides) % totalSlides;
-
-        slides[currentSlide].classList.remove('opacity-0', 'pointer-events-none');
-        slides[currentSlide].classList.add('opacity-100');
-        dots[currentSlide].classList.remove('w-2', 'bg-white/40');
-        dots[currentSlide].classList.add('w-7', 'bg-regal-gold');
       }
 
-      function startAutoSlide() {
-        if (slideInterval) clearInterval(slideInterval);
-        slideInterval = setInterval(() => {
-          goToSlide(currentSlide + 1);
-        }, 4500);
-      }
+      function renderWishlist() {
+        if (!wishlistItemsContainer) return;
 
-      function stopAutoSlide() {
-        if (slideInterval) clearInterval(slideInterval);
-      }
+        const count = wishlistItems.length;
+        if (wishlistCountBadge) wishlistCountBadge.innerText = count;
+        if (mobileWishlistBadge) mobileWishlistBadge.innerText = count;
+        if (wishlistSummaryCount) wishlistSummaryCount.innerText = `${count} ${count === 1 ? 'Item' : 'Items'}`;
 
-      function prevAction() {
-        goToSlide(currentSlide - 1);
-        startAutoSlide();
-      }
+        if (count === 0) {
+          wishlistItemsContainer.innerHTML = `
+            <div class="text-center py-14 px-4 text-regal-muted">
+              <div class="w-14 h-14 mx-auto rounded-full bg-regal-cream border border-regal-sand flex items-center justify-center text-regal-gold mb-3">
+                <i class="fa-regular fa-heart text-2xl"></i>
+              </div>
+              <p class="font-serif text-base text-regal-emerald font-semibold">Your Wishlist is Empty</p>
+              <p class="text-xs text-regal-muted mt-1 max-w-xs mx-auto">Explore our royal weaves and tap the heart on any masterpiece to save it here.</p>
+              <a href="#products" id="exploreFromWishlist" class="inline-block mt-4 px-5 py-2.5 bg-regal-emerald text-white text-xs uppercase tracking-wider font-semibold rounded hover:bg-regal-gold transition">
+                Explore Masterpieces
+              </a>
+            </div>
+          `;
+          const exploreBtn = document.getElementById('exploreFromWishlist');
+          exploreBtn?.addEventListener('click', closeWishlist);
+          if (moveAllToCartBtn) {
+            moveAllToCartBtn.disabled = true;
+            moveAllToCartBtn.classList.add('opacity-50', 'cursor-not-allowed');
+          }
+        } else {
+          if (moveAllToCartBtn) {
+            moveAllToCartBtn.disabled = false;
+            moveAllToCartBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+          }
 
-      function nextAction() {
-        goToSlide(currentSlide + 1);
-        startAutoSlide();
-      }
+          wishlistItemsContainer.innerHTML = wishlistItems.map(item => `
+            <div class="wishlist-item group flex gap-3.5 p-3 rounded-lg border border-regal-sand/70 bg-white hover:border-regal-gold/50 transition">
+              <div class="relative w-16 h-20 rounded overflow-hidden shrink-0 bg-regal-sand/20">
+                <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-1">
+                    <h4 class="font-serif text-xs font-semibold text-regal-emerald leading-snug">${item.title}</h4>
+                    <button class="remove-wishlist-item text-regal-muted hover:text-red-600 transition p-1" data-id="${item.id}" title="Remove from favorites">
+                      <i class="fa-solid fa-xmark text-xs"></i>
+                    </button>
+                  </div>
+                  <p class="text-xs text-regal-gold font-bold mt-1">₹${item.price.toLocaleString('en-IN')}</p>
+                </div>
+                <div class="pt-2 flex items-center gap-2">
+                  <button class="move-single-to-cart flex-1 bg-regal-emerald hover:bg-regal-gold text-white text-[10px] uppercase tracking-wider font-semibold py-1.5 px-2.5 rounded transition flex items-center justify-center gap-1.5" data-id="${item.id}">
+                    <i class="fa-solid fa-bag-shopping text-[10px]"></i>
+                    <span>Move to Bag</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `).join('');
 
-      desktopPrev?.addEventListener('click', prevAction);
-      desktopNext?.addEventListener('click', nextAction);
-      mobilePrev?.addEventListener('click', prevAction);
-      mobileNext?.addEventListener('click', nextAction);
-
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          const idx = parseInt(dot.getAttribute('data-index'), 10);
-          goToSlide(idx);
-          startAutoSlide();
-        });
-      });
-
-      sliderWrapper?.addEventListener('mouseenter', stopAutoSlide);
-      sliderWrapper?.addEventListener('mouseleave', startAutoSlide);
-
-      startAutoSlide();
-
-      // ----------------------------------------------------
-      // 4. PART E: PRODUCT FILTER PILLS
-      // ----------------------------------------------------
-      const filterBtns = document.querySelectorAll('.product-filter-btn');
-      const productCards = document.querySelectorAll('.product-card');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => {
-            b.classList.remove('bg-regal-emerald', 'text-white');
-            b.classList.add('bg-white', 'text-regal-emerald');
+          // Remove button bindings
+          document.querySelectorAll('.remove-wishlist-item').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const id = btn.getAttribute('data-id');
+              wishlistItems = wishlistItems.filter(i => i.id !== id);
+              renderWishlist();
+              updateWishlistCardHearts();
+            });
           });
-          btn.classList.remove('bg-white', 'text-regal-emerald');
-          btn.classList.add('bg-regal-emerald', 'text-white');
 
-          const filterVal = btn.getAttribute('data-filter');
-
-          productCards.forEach(card => {
-            const badge = card.getAttribute('data-badge');
-            if (filterVal === 'all' || badge === filterVal) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
+          // Move single item to cart
+          document.querySelectorAll('.move-single-to-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const id = btn.getAttribute('data-id');
+              const item = wishlistItems.find(i => i.id === id);
+              if (item) {
+                const existingIndex = cartItems.findIndex(i => i.id === id);
+                if (existingIndex > -1) {
+                  cartItems[existingIndex].qty += 1;
+                } else {
+                  cartItems.push({
+                    id: item.id,
+                    title: item.title,
+                    price: item.price,
+                    img: item.img,
+                    qty: 1
+                  });
+                }
+                wishlistItems = wishlistItems.filter(i => i.id !== id);
+                renderWishlist();
+                updateWishlistCardHearts();
+                renderCart();
+                closeWishlist();
+                openCart();
+              }
+            });
           });
-        });
-      });
+        }
+      }
 
-      // ----------------------------------------------------
-      // 5. WISHLIST TOGGLE (No intrusive alerts)
-      // ----------------------------------------------------
-      const wishlistBtns = document.querySelectorAll('.wishlist-btn');
-      const wishlistCountBadge = document.getElementById('wishlistCountBadge');
-      let wishlistCount = 2;
-
+      // Toggle heart on product grid cards
       wishlistBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          const heartIcon = btn.querySelector('i');
-          const isLiked = heartIcon.classList.contains('fa-solid');
+          e.stopPropagation();
+          const id = btn.getAttribute('data-id');
+          const isFavorited = wishlistItems.some(i => i.id === id);
 
-          if (isLiked) {
-            heartIcon.classList.remove('fa-solid', 'text-red-600');
-            heartIcon.classList.add('fa-regular');
-            wishlistCount = Math.max(0, wishlistCount - 1);
+          if (isFavorited) {
+            wishlistItems = wishlistItems.filter(i => i.id !== id);
           } else {
-            heartIcon.classList.remove('fa-regular');
-            heartIcon.classList.add('fa-solid', 'text-red-600');
-            wishlistCount++;
+            const product = productCatalog[id];
+            if (product) {
+              wishlistItems.push(product);
+            }
           }
-          if (wishlistCountBadge) wishlistCountBadge.innerText = wishlistCount;
+          renderWishlist();
+          updateWishlistCardHearts();
         });
       });
+
+      // Move All to Cart
+      moveAllToCartBtn?.addEventListener('click', () => {
+        if (wishlistItems.length === 0) return;
+
+        wishlistItems.forEach(item => {
+          const existingIndex = cartItems.findIndex(i => i.id === item.id);
+          if (existingIndex > -1) {
+            cartItems[existingIndex].qty += 1;
+          } else {
+            cartItems.push({
+              id: item.id,
+              title: item.title,
+              price: item.price,
+              img: item.img,
+              qty: 1
+            });
+          }
+        });
+
+        wishlistItems = [];
+        renderWishlist();
+        updateWishlistCardHearts();
+        renderCart();
+        closeWishlist();
+        openCart();
+      });
+
+      // Initialize wishlist state & buttons
+      renderWishlist();
+      updateWishlistCardHearts();
 
       // ----------------------------------------------------
       // 6. MINI-CART DRAWER
@@ -1527,4 +1659,3 @@
 
 </body>
 </html>
-```    
