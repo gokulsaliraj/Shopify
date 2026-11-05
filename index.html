@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZOHRA &bull; Heritage &amp; Royal Textiles</title>
-
-  <!-- Tailwind CSS -->
+  <title>ZOHRA | Heritage & Couture — Royal Indian Textiles & Pret</title>
+  
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
+  
   <!-- Google Fonts: Cormorant Garamond & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -23,7 +23,7 @@
           colors: {
             regal: {
               emerald: '#0B2920',
-              deepGreen: '#061D16',
+              deepGreen: '#071F18',
               accentGreen: '#134637',
               gold: '#C5A059',
               lightGold: '#E6CA85',
@@ -32,16 +32,17 @@
               cream: '#F4EFE6',
               sand: '#EAE1D2',
               charcoal: '#1A1A1A',
-              muted: '#6C6862'
+              muted: '#686663',
             }
           },
           fontFamily: {
             serif: ['"Cormorant Garamond"', 'serif'],
-            sans: ['"Montserrat"', 'sans-serif']
+            sans: ['"Montserrat"', 'sans-serif'],
           },
           boxShadow: {
-            'subtle': '0 4px 20px -2px rgba(11, 41, 32, 0.08)',
-            'arch': '0 8px 18px -4px rgba(11, 41, 32, 0.16)'
+            'royal': '0 10px 30px -5px rgba(11, 41, 32, 0.12)',
+            'gold-glow': '0 0 20px rgba(197, 160, 89, 0.35)',
+            'arch': '0 12px 25px -4px rgba(11, 41, 32, 0.15)',
           }
         }
       }
@@ -51,52 +52,64 @@
   <style>
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
     }
     ::-webkit-scrollbar-track {
       background: #FAF7F2;
     }
     ::-webkit-scrollbar-thumb {
       background: #C5A059;
-      border-radius: 3px;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9A7730;
     }
 
-    /* Architectural Mughal Arch silhouette for category tabs */
+    /* Mughal Arch CSS Mask / Clip-Path for Tabs */
     .mughal-arch-tab {
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       clip-path: polygon(
         0% 100%, 
-        0% 30%, 
-        14% 28%, 
-        28% 18%, 
-        44% 6%, 
+        0% 32%, 
+        15% 30%, 
+        30% 20%, 
+        45% 8%, 
         50% 0%, 
-        56% 6%, 
-        72% 18%, 
-        86% 28%, 
-        100% 30%, 
+        55% 8%, 
+        70% 20%, 
+        85% 30%, 
+        100% 32%, 
         100% 100%
       );
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Arched frames for category cards */
+    /* Category Arched Frames */
     .mughal-card-arch {
       clip-path: polygon(
         0% 100%,
-        0% 18%,
-        14% 16%,
-        28% 10%,
-        42% 4%,
+        0% 20%,
+        12% 18%,
+        25% 12%,
+        40% 5%,
         50% 0%,
-        58% 4%,
-        72% 10%,
-        86% 16%,
-        100% 18%,
+        60% 5%,
+        75% 12%,
+        88% 18%,
+        100% 20%,
         100% 100%
       );
     }
 
+    /* Shimmer Effect for Gold Accents */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #ECC876 0%, #C5A059 50%, #987227 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Hide scrollbars for clean horizontal tab scroll */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -105,85 +118,73 @@
       scrollbar-width: none;
     }
 
+    /* Subtle zoom on image hover */
     .zoom-hover {
-      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     .zoom-hover:hover {
-      transform: scale(1.04);
+      transform: scale(1.06);
     }
   </style>
 </head>
 
 <body class="bg-regal-ivory text-regal-charcoal font-sans antialiased overflow-x-hidden selection:bg-regal-gold selection:text-white">
 
-  <!-- ======================================================== -->
-  <!-- TOP ANNOUNCEMENT BAR                                     -->
-  <!-- ======================================================== -->
-  <div class="bg-regal-deepGreen text-regal-lightGold text-[11px] py-2 px-4 tracking-widest uppercase font-medium border-b border-regal-gold/20">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <span class="hidden md:inline-flex items-center gap-2">
-        <i class="fa-solid fa-gem text-regal-gold text-[10px]"></i> Handcrafted Royal Weaves &bull; Benares
-      </span>
-      <div class="hidden md:flex items-center gap-4 text-[11px]">
-        <span>INR (₹)</span>
-        <span class="text-regal-sand/80">Heritage Suite</span>
-      </div>
-    </div>
-  </div>
+
 
   <!-- ======================================================== -->
   <!-- PART A: RESPONSIVE HEADER                                -->
   <!-- ======================================================== -->
-  <header class="sticky top-0 z-40 bg-regal-ivory/95 backdrop-blur-md border-b border-regal-sand/80">
+  <header class="sticky top-0 z-40 bg-regal-ivory/95 backdrop-blur-md border-b border-regal-sand/80 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20 md:h-24">
         
-        <!-- Mobile Trigger & Search Button -->
-        <div class="flex items-center gap-2 lg:hidden">
-          <button id="mobileMenuBtn" aria-label="Open Navigation" class="text-regal-emerald p-2 hover:text-regal-gold transition text-xl">
+        <!-- Mobile Hamburger Button & Search Toggle -->
+        <div class="flex items-center gap-3 lg:hidden">
+          <button id="mobileMenuBtn" aria-label="Open Navigation Menu" class="text-regal-emerald p-2 hover:text-regal-gold transition text-xl focus:outline-none">
             <i class="fa-solid fa-bars-staggered"></i>
           </button>
-          <button id="mobileSearchBtn" aria-label="Toggle Search" class="text-regal-emerald p-2 hover:text-regal-gold transition text-base md:hidden">
+          <button id="mobileSearchBtn" aria-label="Open Search" class="text-regal-emerald p-2 hover:text-regal-gold transition text-lg md:hidden">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
 
-        <!-- Desktop Search Field -->
+        <!-- Left: Desktop Search Field -->
         <div class="hidden lg:flex items-center flex-1 max-w-xs relative">
           <input 
             type="text" 
             id="desktopSearchInput"
-            placeholder="Search Silk Sarees, Kurtas, Shawls..." 
-            class="w-full bg-regal-cream/70 border border-regal-sand rounded-full py-2 pl-9 pr-4 text-xs font-normal text-regal-charcoal placeholder-regal-muted/70 focus:outline-none focus:border-regal-gold focus:ring-1 focus:ring-regal-gold transition"
+            placeholder="Search Silk Sarees, Lehengas..." 
+            class="w-full bg-regal-cream/60 border border-regal-sand rounded-full py-2 pl-10 pr-4 text-xs font-normal text-regal-charcoal placeholder-regal-muted/70 focus:outline-none focus:border-regal-gold focus:ring-1 focus:ring-regal-gold transition shadow-inner"
           />
           <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-xs text-regal-gold"></i>
         </div>
 
-        <!-- Brand Identity -->
+        <!-- Center: Brand Logo -->
         <div class="text-center flex-1 lg:flex-none px-2">
           <a href="#" class="inline-block group">
-            <span class="font-serif text-2xl sm:text-3xl md:text-4xl tracking-[0.22em] font-semibold text-regal-emerald uppercase transition group-hover:text-regal-gold duration-300 block">
+            <h1 class="font-serif text-2xl sm:text-3xl md:text-4xl tracking-[0.25em] font-semibold text-regal-emerald uppercase transition group-hover:text-regal-gold duration-300">
               ZOHRA
-            </span>
-            <span class="text-[9px] sm:text-[10px] tracking-[0.38em] uppercase text-regal-gold font-medium -mt-1 block">
+            </h1>
+            <p class="text-[9px] sm:text-[10px] tracking-[0.4em] uppercase text-regal-gold font-medium -mt-1 group-hover:text-regal-emerald transition">
               Heritage &bull; Couture
-            </span>
+            </p>
           </a>
         </div>
 
-        <!-- Action Icons: Account, Wishlist, Cart -->
-        <div class="flex items-center justify-end gap-1.5 sm:gap-4 flex-1 max-w-xs">
+        <!-- Right: Action Icons (Account, Wishlist, Cart) -->
+        <div class="flex items-center justify-end gap-2 sm:gap-4 flex-1 max-w-xs">
           <!-- Account Icon -->
-          <div class="hidden sm:flex flex-col items-center text-regal-emerald hover:text-regal-gold transition p-2 cursor-pointer" title="Account">
-            <i class="fa-regular fa-user text-lg"></i>
-            <span class="text-[9px] uppercase tracking-wider mt-0.5 font-medium hidden md:inline">Account</span>
-          </div>
+          <a href="#" class="hidden sm:flex flex-col items-center text-regal-emerald hover:text-regal-gold transition p-2 group" title="Account">
+            <i class="fa-regular fa-user text-lg group-hover:scale-110 transition-transform"></i>
+            <span class="text-[9px] uppercase tracking-wider mt-0.5 font-medium hidden md:inline">Profile</span>
+          </a>
 
           <!-- Wishlist Icon with Counter Badge -->
-          <button id="wishlistHeaderBtn" class="flex flex-col items-center text-regal-emerald hover:text-regal-gold transition p-2 relative" title="View Wishlist" aria-label="Open Wishlist">
+          <button id="wishlistHeaderBtn" class="flex flex-col items-center text-regal-emerald hover:text-regal-gold transition p-2 relative group" title="Wishlist">
             <div class="relative">
-              <i class="fa-regular fa-heart text-lg"></i>
-              <span id="wishlistCountBadge" class="absolute -top-1.5 -right-2.5 bg-regal-gold text-regal-deepGreen text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
+              <i class="fa-regular fa-heart text-lg group-hover:scale-110 transition-transform"></i>
+              <span id="wishlistCountBadge" class="absolute -top-1.5 -right-2.5 bg-regal-gold text-regal-deepGreen text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center shadow">
                 2
               </span>
             </div>
@@ -191,10 +192,10 @@
           </button>
 
           <!-- Cart Icon with Drawer Trigger -->
-          <button id="cartDrawerBtn" class="flex flex-col items-center text-regal-emerald hover:text-regal-gold transition p-2 relative" title="Shopping Bag">
+          <button id="cartDrawerBtn" class="flex flex-col items-center text-regal-emerald hover:text-regal-gold transition p-2 relative group" title="Shopping Bag">
             <div class="relative">
-              <i class="fa-solid fa-bag-shopping text-lg"></i>
-              <span id="cartCountBadge" class="absolute -top-1.5 -right-2.5 bg-regal-emerald text-regal-lightGold text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-regal-gold/40">
+              <i class="fa-solid fa-bag-shopping text-lg group-hover:scale-110 transition-transform"></i>
+              <span id="cartCountBadge" class="absolute -top-1.5 -right-2.5 bg-regal-emerald text-regal-lightGold text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center shadow border border-regal-gold/40">
                 1
               </span>
             </div>
@@ -204,104 +205,114 @@
 
       </div>
 
-      <!-- Desktop Navigation Menu -->
+      <!-- Desktop Main Navigation Menu -->
       <nav class="hidden lg:flex items-center justify-center border-t border-regal-sand/60 py-3 gap-8 text-xs uppercase tracking-[0.2em] font-medium text-regal-emerald">
-        <a href="#tabs-section" class="hover:text-regal-gold transition py-1">Royal Silks</a>
-        <a href="#categories" class="hover:text-regal-gold transition py-1">Categories</a>
-        <a href="#products" class="hover:text-regal-gold transition py-1">Masterpieces</a>
-        <a href="#story" class="hover:text-regal-gold transition py-1">Artisan Heritage</a>
-        <a href="#footer" class="hover:text-regal-gold transition py-1">Atelier Concierge</a>
+        <a href="#tabs-section" class="hover:text-regal-gold transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-regal-gold hover:after:w-full after:transition-all">Royal Silks</a>
+        <a href="#categories" class="hover:text-regal-gold transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-regal-gold hover:after:w-full after:transition-all">The Categories</a>
+        <a href="#products" class="hover:text-regal-gold transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-regal-gold hover:after:w-full after:transition-all">Couture Grid</a>
+        <a href="#story" class="hover:text-regal-gold transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-regal-gold hover:after:w-full after:transition-all">The Atelier Story</a>
+        <a href="#bridal" class="hover:text-regal-gold transition text-regal-darkGold font-semibold">Bridal Bespoke</a>
+        <a href="#contact" class="hover:text-regal-gold transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-regal-gold hover:after:w-full after:transition-all">Flagship Concierge</a>
       </nav>
     </div>
   </header>
 
-  <!-- Mobile Search Bar -->
+  <!-- Mobile Search Bar Dropdown -->
   <div id="mobileSearchBar" class="hidden lg:hidden bg-regal-cream px-4 py-3 border-b border-regal-sand">
     <div class="relative">
       <input 
         type="text" 
         id="mobileSearchInput"
-        placeholder="Search Sarees, Dupattas, Velvet..." 
-        class="w-full bg-white border border-regal-sand rounded-full py-2 pl-9 pr-4 text-xs font-normal focus:outline-none focus:border-regal-gold"
+        placeholder="Search Banarasi, Zari, Velvet..." 
+        class="w-full bg-white border border-regal-sand rounded-full py-2 pl-10 pr-4 text-xs font-normal focus:outline-none focus:border-regal-gold"
       />
       <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-xs text-regal-gold"></i>
     </div>
   </div>
 
-  <!-- Mobile Drawer Menu -->
+  <!-- Mobile Drawer Menu Overlay & Drawer -->
   <div id="mobileDrawerOverlay" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
   <aside id="mobileDrawer" class="fixed top-0 left-0 w-80 max-w-[85%] h-full bg-regal-ivory z-50 shadow-2xl -translate-x-full transition-transform duration-300 flex flex-col justify-between">
     <div class="p-6 overflow-y-auto">
-      <div class="flex items-center justify-between pb-5 border-b border-regal-sand">
+      <div class="flex items-center justify-between pb-6 border-b border-regal-sand">
         <div>
-          <span class="font-serif text-2xl tracking-[0.2em] font-bold text-regal-emerald block">ZOHRA</span>
-          <span class="text-[9px] uppercase tracking-widest text-regal-gold block">Heritage &bull; Couture</span>
+          <span class="font-serif text-2xl tracking-[0.2em] font-bold text-regal-emerald">ZOHRA</span>
+          <p class="text-[9px] uppercase tracking-widest text-regal-gold">Heritage &bull; Couture</p>
         </div>
-        <button id="closeMobileDrawer" class="text-regal-emerald hover:text-regal-gold text-2xl p-1" aria-label="Close menu">
+        <button id="closeMobileDrawer" class="text-regal-emerald hover:text-regal-gold text-2xl p-1">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <nav class="flex flex-col gap-3 mt-6 text-xs uppercase tracking-widest font-medium text-regal-emerald">
-        <a href="#tabs-section" class="mobile-nav-link py-2.5 border-b border-regal-sand/50 hover:text-regal-gold flex justify-between items-center">
-          <span>Curated Silhouettes</span> <i class="fa-solid fa-arrow-right text-[10px] text-regal-gold"></i>
+      <nav class="flex flex-col gap-4 mt-8 text-sm uppercase tracking-wider font-medium text-regal-emerald">
+        <a href="#tabs-section" class="mobile-nav-link py-2 border-b border-regal-sand/40 hover:text-regal-gold flex justify-between items-center">
+          <span>Curated Edits</span> <i class="fa-solid fa-arrow-right text-xs text-regal-gold"></i>
         </a>
-        <button id="mobileWishlistBtn" class="py-2.5 border-b border-regal-sand/50 hover:text-regal-gold flex justify-between items-center text-left text-xs uppercase tracking-widest font-medium text-regal-emerald">
-          <span class="flex items-center gap-2"><i class="fa-regular fa-heart text-regal-gold"></i> Saved Favorites</span>
-          <span id="mobileWishlistBadge" class="bg-regal-gold text-regal-deepGreen text-[10px] font-bold px-2 py-0.5 rounded-full">2</span>
-        </button>
-        <a href="#categories" class="mobile-nav-link py-2.5 border-b border-regal-sand/50 hover:text-regal-gold flex justify-between items-center">
-          <span>Categories</span> <i class="fa-solid fa-arrow-right text-[10px] text-regal-gold"></i>
+        <a href="#banner-section" class="mobile-nav-link py-2 border-b border-regal-sand/40 hover:text-regal-gold flex justify-between items-center">
+          <span>Seasonal Campaign</span> <i class="fa-solid fa-arrow-right text-xs text-regal-gold"></i>
         </a>
-        <a href="#products" class="mobile-nav-link py-2.5 border-b border-regal-sand/50 hover:text-regal-gold flex justify-between items-center">
-          <span>Masterpiece Grid</span> <i class="fa-solid fa-arrow-right text-[10px] text-regal-gold"></i>
+        <a href="#categories" class="mobile-nav-link py-2 border-b border-regal-sand/40 hover:text-regal-gold flex justify-between items-center">
+          <span>Categories Archive</span> <i class="fa-solid fa-arrow-right text-xs text-regal-gold"></i>
         </a>
-        <a href="#story" class="mobile-nav-link py-2.5 border-b border-regal-sand/50 hover:text-regal-gold flex justify-between items-center">
-          <span>The Atelier Craft</span> <i class="fa-solid fa-arrow-right text-[10px] text-regal-gold"></i>
+        <a href="#products" class="mobile-nav-link py-2 border-b border-regal-sand/40 hover:text-regal-gold flex justify-between items-center">
+          <span>Masterpiece Gallery</span> <i class="fa-solid fa-arrow-right text-xs text-regal-gold"></i>
         </a>
-        <a href="#footer" class="mobile-nav-link py-2.5 border-b border-regal-sand/50 hover:text-regal-gold flex justify-between items-center">
-          <span>Concierge &amp; Care</span> <i class="fa-solid fa-arrow-right text-[10px] text-regal-gold"></i>
+        <a href="#story" class="mobile-nav-link py-2 border-b border-regal-sand/40 hover:text-regal-gold flex justify-between items-center">
+          <span>The Atelier Craft</span> <i class="fa-solid fa-arrow-right text-xs text-regal-gold"></i>
+        </a>
+        <a href="#footer" class="mobile-nav-link py-2 border-b border-regal-sand/40 hover:text-regal-gold flex justify-between items-center">
+          <span>Customer Concierge</span> <i class="fa-solid fa-arrow-right text-xs text-regal-gold"></i>
         </a>
       </nav>
 
-      <div class="mt-8 pt-5 border-t border-regal-sand space-y-2 text-xs text-regal-muted">
-        <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-regal-gold text-xs"></i> Taj Santacruz, Mumbai</p>
-        <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-regal-gold text-xs"></i> +91 (022) 8920 4455</p>
+      <div class="mt-8 pt-6 border-t border-regal-sand space-y-3">
+        <div class="flex items-center gap-3 text-xs text-regal-emerald">
+          <i class="fa-solid fa-location-dot text-regal-gold"></i>
+          <span>Flagship: Taj Santacruz, Mumbai</span>
+        </div>
+        <div class="flex items-center gap-3 text-xs text-regal-emerald">
+          <i class="fa-solid fa-phone text-regal-gold"></i>
+          <span>+91 (022) 8920 4455</span>
+        </div>
       </div>
     </div>
 
-    <div class="p-5 bg-regal-cream border-t border-regal-sand text-[11px] text-regal-muted flex justify-between items-center">
-      <span>Currency: <strong>INR (₹)</strong></span>
-      <span>Authentic Handloom</span>
+    <div class="p-6 bg-regal-cream border-t border-regal-sand">
+      <div class="flex items-center justify-between text-xs text-regal-muted">
+        <span>Currency: <strong>INR (₹)</strong></span>
+        <span>Made in India</span>
+      </div>
     </div>
   </aside>
 
+
   <!-- ======================================================== -->
-  <!-- PART B: ACTIVE TAB SECTION (MUGHAL ARCH DESIGN)          -->
+  <!-- PART B: ACTIVE TAB SECTION (MUGHAL ARCH INSPIRED)        -->
   <!-- ======================================================== -->
-  <section id="tabs-section" class="bg-gradient-to-b from-regal-cream via-regal-ivory to-regal-ivory py-6 border-b border-regal-sand">
+  <section id="tabs-section" class="bg-gradient-to-b from-regal-cream via-regal-ivory to-regal-ivory py-6 border-b border-regal-sand shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-5">
-        <div class="inline-flex items-center gap-2 text-regal-gold text-[11px] tracking-[0.28em] uppercase font-semibold">
-          <span class="w-6 h-px bg-regal-gold"></span>
-          <span>Imperial Silhouettes</span>
-          <span class="w-6 h-px bg-regal-gold"></span>
+        <div class="inline-flex items-center gap-2 text-regal-gold text-xs tracking-[0.3em] uppercase font-semibold">
+          <span class="w-8 h-px bg-regal-gold"></span>
+          <span>The Sovereign Edits</span>
+          <span class="w-8 h-px bg-regal-gold"></span>
         </div>
-        <h2 class="font-serif text-xl sm:text-2xl text-regal-emerald font-semibold mt-0.5">
-          Curated Royal Archives
+        <h2 class="font-serif text-xl sm:text-2xl text-regal-emerald font-semibold mt-1">
+          Explore by Curated Imperial Silhouette
         </h2>
       </div>
 
-      <!-- Mughal Arch Shaped Tabs -->
-      <div class="flex items-center justify-start md:justify-center gap-3 overflow-x-auto no-scrollbar py-2 px-1">
+      <!-- Mughal Arch Shaped Interactive Tabs -->
+      <div class="flex items-center justify-start md:justify-center gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-2 px-1">
         
         <!-- Tab 1 (Default Active) -->
         <button 
           data-tab="all" 
-          class="category-tab active-tab shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-emerald text-white border-b-2 border-regal-gold shadow-arch -translate-y-1"
+          class="category-tab active-tab group shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-emerald text-white border-b-2 border-regal-gold shadow-arch transform -translate-y-1"
         >
           <div class="flex flex-col items-center">
+            <!-- Custom Mughal Arch SVG Peak Accent -->
             <svg class="w-5 h-3 text-regal-gold mb-1" viewBox="0 0 24 14" fill="currentColor">
               <path d="M12 0C10 4 7 7 4 8C1 9 0 10 0 14H24C24 10 23 9 20 8C17 7 14 4 12 0Z"/>
             </svg>
@@ -313,13 +324,13 @@
         <!-- Tab 2 -->
         <button 
           data-tab="zardozi" 
-          class="category-tab shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-cream text-regal-emerald hover:bg-regal-sand/70 transition shadow-sm"
+          class="category-tab group shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-cream text-regal-emerald hover:bg-regal-sand/70 transition shadow-sm"
         >
           <div class="flex flex-col items-center">
-            <svg class="w-5 h-3 text-regal-gold/50 mb-1 transition" viewBox="0 0 24 14" fill="currentColor">
+            <svg class="w-5 h-3 text-regal-gold/50 group-hover:text-regal-gold mb-1 transition" viewBox="0 0 24 14" fill="currentColor">
               <path d="M12 0C10 4 7 7 4 8C1 9 0 10 0 14H24C24 10 23 9 20 8C17 7 14 4 12 0Z"/>
             </svg>
-            <span class="text-xs sm:text-sm font-serif font-semibold tracking-wider uppercase">Zardozi Work</span>
+            <span class="text-xs sm:text-sm font-serif font-semibold tracking-wider uppercase">Zardozi Heritage</span>
             <span class="text-[9px] tracking-widest text-regal-muted font-sans mt-0.5">Gold Threadwork</span>
           </div>
         </button>
@@ -327,10 +338,10 @@
         <!-- Tab 3 -->
         <button 
           data-tab="velvet" 
-          class="category-tab shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-cream text-regal-emerald hover:bg-regal-sand/70 transition shadow-sm"
+          class="category-tab group shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-cream text-regal-emerald hover:bg-regal-sand/70 transition shadow-sm"
         >
           <div class="flex flex-col items-center">
-            <svg class="w-5 h-3 text-regal-gold/50 mb-1 transition" viewBox="0 0 24 14" fill="currentColor">
+            <svg class="w-5 h-3 text-regal-gold/50 group-hover:text-regal-gold mb-1 transition" viewBox="0 0 24 14" fill="currentColor">
               <path d="M12 0C10 4 7 7 4 8C1 9 0 10 0 14H24C24 10 23 9 20 8C17 7 14 4 12 0Z"/>
             </svg>
             <span class="text-xs sm:text-sm font-serif font-semibold tracking-wider uppercase">Velvet Edit</span>
@@ -341,10 +352,10 @@
         <!-- Tab 4 -->
         <button 
           data-tab="bridal" 
-          class="category-tab shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-cream text-regal-emerald hover:bg-regal-sand/70 transition shadow-sm"
+          class="category-tab group shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-cream text-regal-emerald hover:bg-regal-sand/70 transition shadow-sm"
         >
           <div class="flex flex-col items-center">
-            <svg class="w-5 h-3 text-regal-gold/50 mb-1 transition" viewBox="0 0 24 14" fill="currentColor">
+            <svg class="w-5 h-3 text-regal-gold/50 group-hover:text-regal-gold mb-1 transition" viewBox="0 0 24 14" fill="currentColor">
               <path d="M12 0C10 4 7 7 4 8C1 9 0 10 0 14H24C24 10 23 9 20 8C17 7 14 4 12 0Z"/>
             </svg>
             <span class="text-xs sm:text-sm font-serif font-semibold tracking-wider uppercase">Bridal Couture</span>
@@ -355,14 +366,28 @@
         <!-- Tab 5 -->
         <button 
           data-tab="festive" 
-          class="category-tab shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-cream text-regal-emerald hover:bg-regal-sand/70 transition shadow-sm"
+          class="category-tab group shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-cream text-regal-emerald hover:bg-regal-sand/70 transition shadow-sm"
         >
           <div class="flex flex-col items-center">
-            <svg class="w-5 h-3 text-regal-gold/50 mb-1 transition" viewBox="0 0 24 14" fill="currentColor">
+            <svg class="w-5 h-3 text-regal-gold/50 group-hover:text-regal-gold mb-1 transition" viewBox="0 0 24 14" fill="currentColor">
               <path d="M12 0C10 4 7 7 4 8C1 9 0 10 0 14H24C24 10 23 9 20 8C17 7 14 4 12 0Z"/>
             </svg>
             <span class="text-xs sm:text-sm font-serif font-semibold tracking-wider uppercase">Festive Pret</span>
-            <span class="text-[9px] tracking-widest text-regal-muted font-sans mt-0.5">Kalidar Anarkalis</span>
+            <span class="text-[9px] tracking-widest text-regal-muted font-sans mt-0.5">Lightweight Anarkalis</span>
+          </div>
+        </button>
+
+        <!-- Tab 6 -->
+        <button 
+          data-tab="jewels" 
+          class="category-tab group shrink-0 relative px-6 sm:px-7 pt-4 pb-3 mughal-arch-tab bg-regal-cream text-regal-emerald hover:bg-regal-sand/70 transition shadow-sm"
+        >
+          <div class="flex flex-col items-center">
+            <svg class="w-5 h-3 text-regal-gold/50 group-hover:text-regal-gold mb-1 transition" viewBox="0 0 24 14" fill="currentColor">
+              <path d="M12 0C10 4 7 7 4 8C1 9 0 10 0 14H24C24 10 23 9 20 8C17 7 14 4 12 0Z"/>
+            </svg>
+            <span class="text-xs sm:text-sm font-serif font-semibold tracking-wider uppercase">Handcrafted Mojaris</span>
+            <span class="text-[9px] tracking-widest text-regal-muted font-sans mt-0.5">Zari Footwear</span>
           </div>
         </button>
 
@@ -370,41 +395,43 @@
     </div>
   </section>
 
+
   <!-- ======================================================== -->
   <!-- PART C: AUTO-SLIDING BANNER / HERO SLIDER                -->
   <!-- ======================================================== -->
-  <section id="banner-section" class="relative overflow-hidden bg-regal-deepGreen text-white w-full select-none">
+  <section id="banner-section" class="relative overflow-hidden bg-regal-deepGreen text-white w-full">
     
-    <!-- Slides Container -->
-    <div id="sliderWrapper" class="relative w-full h-[540px] sm:h-[620px] lg:h-[700px]">
+    <!-- Slider Container -->
+    <div id="sliderWrapper" class="relative w-full h-[520px] sm:h-[620px] lg:h-[720px]">
 
       <!-- Slide 1 -->
       <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out flex items-center">
+        <!-- Background Image with Overlay -->
         <img 
           src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1920&q=80" 
-          alt="Royal Banarasi Weaves" 
-          class="absolute inset-0 w-full h-full object-cover object-top brightness-[0.72]"
+          alt="Royal Banarasi Weaves of Benares" 
+          class="absolute inset-0 w-full h-full object-cover object-top filter brightness-[0.78]"
           loading="eager"
         />
-        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-regal-deepGreen/55 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-regal-deepGreen/60 to-transparent"></div>
         <div class="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pb-14 sm:pb-0">
-          <div class="max-w-xl space-y-4 sm:space-y-5">
-            <span class="inline-block py-1 px-3 border border-regal-gold text-regal-lightGold text-[11px] tracking-[0.25em] uppercase bg-black/30 backdrop-blur-sm">
-              Winter Couture Edition
+          <div class="max-w-2xl space-y-4 sm:space-y-6">
+            <span class="inline-block py-1 px-3 border border-regal-gold text-regal-lightGold text-xs tracking-[0.3em] uppercase bg-black/30 backdrop-blur-sm">
+              Winter Couture 2026
             </span>
-            <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-light leading-tight text-white">
-              The Sovereign <br><span class="italic font-normal text-regal-lightGold">Banarasi Heritage</span>
+            <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-light leading-[1.15] text-white">
+              The Sovereign <br><span class="italic font-normal gold-gradient-text">Banarasi Heritage</span>
             </h2>
-            <p class="text-xs sm:text-sm text-gray-200 font-light leading-relaxed max-w-md">
-              Ancestral pit-loom weaving with hallmarked silver zari and 8-ply Mulberry silk, cultivated for timeless celebrations.
+            <p class="text-xs sm:text-sm md:text-base text-gray-200 font-light leading-relaxed max-w-lg">
+              Woven on the ancestral pit looms of Benares using pure silver zari and 8-ply Mulberry silk. Designed for celebrations that transcend generations.
             </p>
-            <div class="pt-2 flex flex-wrap gap-3">
-              <a href="#products" class="inline-flex items-center gap-2 bg-regal-gold hover:bg-regal-lightGold text-regal-deepGreen font-semibold px-7 py-3 text-xs uppercase tracking-wider transition">
-                <span>View Masterpieces</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            <div class="pt-2 flex flex-wrap gap-4">
+              <a href="#products" class="inline-flex items-center gap-3 bg-regal-gold hover:bg-regal-lightGold text-regal-deepGreen font-semibold px-8 py-3.5 text-xs uppercase tracking-[0.2em] transition duration-300 shadow-royal">
+                <span>Explore Collection</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
               </a>
-              <a href="#story" class="inline-flex items-center border border-white/60 hover:border-regal-gold text-white hover:text-regal-gold px-6 py-3 text-xs uppercase tracking-wider transition backdrop-blur-sm">
-                <span>Atelier Story</span>
+              <a href="#story" class="inline-flex items-center gap-2 border border-white/70 hover:border-regal-gold text-white hover:text-regal-gold font-medium px-7 py-3.5 text-xs uppercase tracking-[0.2em] transition duration-300 backdrop-blur-sm">
+                <span>The Weaving Craft</span>
               </a>
             </div>
           </div>
@@ -415,29 +442,29 @@
       <div class="slide absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out flex items-center">
         <img 
           src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1920&q=80" 
-          alt="Hand-Embroidered Zardozi Lehengas" 
-          class="absolute inset-0 w-full h-full object-cover object-center brightness-[0.70]"
+          alt="Imperial Velvet and Bridal Lehengas" 
+          class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.72]"
           loading="lazy"
         />
-        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-regal-deepGreen/55 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
         <div class="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pb-14 sm:pb-0">
-          <div class="max-w-xl space-y-4 sm:space-y-5">
-            <span class="inline-block py-1 px-3 border border-regal-gold text-regal-lightGold text-[11px] tracking-[0.25em] uppercase bg-black/30 backdrop-blur-sm">
+          <div class="max-w-2xl space-y-4 sm:space-y-6">
+            <span class="inline-block py-1 px-3 border border-regal-gold text-regal-lightGold text-xs tracking-[0.3em] uppercase bg-black/30 backdrop-blur-sm">
               Imperial Trousseau
             </span>
-            <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-light leading-tight text-white">
-              Hand-Embroidered <br><span class="italic font-normal text-regal-lightGold">Zardozi Elegance</span>
+            <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-light leading-[1.15] text-white">
+              Hand-Embroidered <br><span class="italic font-normal gold-gradient-text">Zardozi Majesty</span>
             </h2>
-            <p class="text-xs sm:text-sm text-gray-200 font-light leading-relaxed max-w-md">
-              Over three hundred artisan hours dedicated to micro-pearl and beaten dabka work across royal bottle-green velvet.
+            <p class="text-xs sm:text-sm md:text-base text-gray-200 font-light leading-relaxed max-w-lg">
+              Over four hundred master artisan hours woven into micro-pearl and dabka embellishments across royal bottle-green and jewel crimson velvets.
             </p>
-            <div class="pt-2 flex flex-wrap gap-3">
-              <a href="#products" class="inline-flex items-center gap-2 bg-regal-gold hover:bg-regal-lightGold text-regal-deepGreen font-semibold px-7 py-3 text-xs uppercase tracking-wider transition">
+            <div class="pt-2 flex flex-wrap gap-4">
+              <a href="#products" class="inline-flex items-center gap-3 bg-regal-gold hover:bg-regal-lightGold text-regal-deepGreen font-semibold px-8 py-3.5 text-xs uppercase tracking-[0.2em] transition duration-300 shadow-royal">
                 <span>Shop Bridal Pret</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
               </a>
-              <a href="#categories" class="inline-flex items-center border border-white/60 hover:border-regal-gold text-white hover:text-regal-gold px-6 py-3 text-xs uppercase tracking-wider transition backdrop-blur-sm">
-                <span>Velvet Archive</span>
+              <a href="#categories" class="inline-flex items-center gap-2 border border-white/70 hover:border-regal-gold text-white hover:text-regal-gold font-medium px-7 py-3.5 text-xs uppercase tracking-[0.2em] transition duration-300 backdrop-blur-sm">
+                <span>View Velvet Edits</span>
               </a>
             </div>
           </div>
@@ -447,30 +474,30 @@
       <!-- Slide 3 -->
       <div class="slide absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out flex items-center">
         <img 
-          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1920&q=80" 
-          alt="Heirloom Pashmina Shawls" 
-          class="absolute inset-0 w-full h-full object-cover object-center brightness-[0.72]"
+          src="https://images.unsplash.com/photo-1668371679302-a8ec781e876e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0" 
+          alt="Royal Heirloom Shawls and Anarkalis" 
+          class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.75]"
           loading="lazy"
         />
-        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-regal-deepGreen/55 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
         <div class="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pb-14 sm:pb-0">
-          <div class="max-w-xl space-y-4 sm:space-y-5">
-            <span class="inline-block py-1 px-3 border border-regal-gold text-regal-lightGold text-[11px] tracking-[0.25em] uppercase bg-black/30 backdrop-blur-sm">
-              Pashmina &amp; Gilded Drapes
+          <div class="max-w-2xl space-y-4 sm:space-y-6">
+            <span class="inline-block py-1 px-3 border border-regal-gold text-regal-lightGold text-xs tracking-[0.3em] uppercase bg-black/30 backdrop-blur-sm">
+              Artisanal Pashmina & Zari
             </span>
-            <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-light leading-tight text-white">
-              Heirloom Drapes <br><span class="italic font-normal text-regal-lightGold">A Century of Grace</span>
+            <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-light leading-[1.15] text-white">
+              Heirloom Drape <br><span class="italic font-normal gold-gradient-text">A Legacy of Grace</span>
             </h2>
-            <p class="text-xs sm:text-sm text-gray-200 font-light leading-relaxed max-w-md">
-              Handspun Pashmina with delicate sozni embroidery, honoring northern craft traditions through contemporary cuts.
+            <p class="text-xs sm:text-sm md:text-base text-gray-200 font-light leading-relaxed max-w-lg">
+              Subtle elegance meets imperial grandeur. Every thread narrates the song of master weavers guarding India's rich handloom sanctuaries.
             </p>
-            <div class="pt-2 flex flex-wrap gap-3">
-              <a href="#products" class="inline-flex items-center gap-2 bg-regal-gold hover:bg-regal-lightGold text-regal-deepGreen font-semibold px-7 py-3 text-xs uppercase tracking-wider transition">
-                <span>Explore Shawls</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            <div class="pt-2 flex flex-wrap gap-4">
+              <a href="#products" class="inline-flex items-center gap-3 bg-regal-gold hover:bg-regal-lightGold text-regal-deepGreen font-semibold px-8 py-3.5 text-xs uppercase tracking-[0.2em] transition duration-300 shadow-royal">
+                <span>Acquire Masterpieces</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
               </a>
-              <a href="#story" class="inline-flex items-center border border-white/60 hover:border-regal-gold text-white hover:text-regal-gold px-6 py-3 text-xs uppercase tracking-wider transition backdrop-blur-sm">
-                <span>Read The Craft</span>
+              <a href="#story" class="inline-flex items-center gap-2 border border-white/70 hover:border-regal-gold text-white hover:text-regal-gold font-medium px-7 py-3.5 text-xs uppercase tracking-[0.2em] transition duration-300 backdrop-blur-sm">
+                <span>The Story of Gold</span>
               </a>
             </div>
           </div>
@@ -479,221 +506,245 @@
 
     </div>
 
-    <!-- CAROUSEL CONTROLS: 
-         - On mobile & tablet (< md): Positioned neatly at the bottom right/center bar to avoid blocking image/titles
-         - On desktop (>= md): Floating left & right side arrows
-    -->
-    <!-- Desktop Side Arrows -->
-    <button 
-      id="desktopPrevSlide" 
-      aria-label="Previous Slide" 
-      class="hidden md:flex absolute left-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/30 bg-black/30 hover:bg-regal-gold hover:text-regal-deepGreen hover:border-regal-gold text-white transition items-center justify-center backdrop-blur-sm z-20"
-    >
+    <!-- Slide Navigation Arrows (Desktop: Side Floating | Mobile: Bottom Toolbar) -->
+    <button id="prevSlide" aria-label="Previous Slide" class="absolute hidden sm:flex left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/30 bg-black/30 hover:bg-regal-gold hover:text-regal-deepGreen hover:border-regal-gold text-white transition items-center justify-center backdrop-blur-sm z-20">
       <i class="fa-solid fa-chevron-left text-sm"></i>
     </button>
-    <button 
-      id="desktopNextSlide" 
-      aria-label="Next Slide" 
-      class="hidden md:flex absolute right-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/30 bg-black/30 hover:bg-regal-gold hover:text-regal-deepGreen hover:border-regal-gold text-white transition items-center justify-center backdrop-blur-sm z-20"
-    >
+    <button id="nextSlide" aria-label="Next Slide" class="absolute hidden sm:flex right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/30 bg-black/30 hover:bg-regal-gold hover:text-regal-deepGreen hover:border-regal-gold text-white transition items-center justify-center backdrop-blur-sm z-20">
       <i class="fa-solid fa-chevron-right text-sm"></i>
     </button>
 
-    <!-- Bottom Controls Bar (Pagination dots + Mobile bottom navigation arrows) -->
-    <div class="absolute bottom-5 left-0 right-0 z-20 px-6 max-w-7xl mx-auto flex items-center justify-between md:justify-center">
-      
-      <!-- Mobile Previous Arrow -->
-      <button 
-        id="mobilePrevSlide" 
-        aria-label="Previous Slide" 
-        class="md:hidden w-8 h-8 rounded-full border border-white/30 bg-black/40 text-white flex items-center justify-center active:bg-regal-gold active:text-regal-deepGreen"
-      >
-        <i class="fa-solid fa-chevron-left text-xs"></i>
-      </button>
-
-      <!-- Dots Indicators -->
-      <div class="flex items-center gap-2.5">
-        <button class="slider-dot w-7 h-1.5 rounded-full bg-regal-gold transition-all" data-index="0" aria-label="Slide 1"></button>
-        <button class="slider-dot w-2 h-1.5 rounded-full bg-white/40 hover:bg-white/80 transition-all" data-index="1" aria-label="Slide 2"></button>
-        <button class="slider-dot w-2 h-1.5 rounded-full bg-white/40 hover:bg-white/80 transition-all" data-index="2" aria-label="Slide 3"></button>
+    <!-- Mobile-Only Bottom Carousel Navigation Controls -->
+    <div class="sm:hidden absolute bottom-3 inset-x-0 z-20 px-4 flex items-center justify-between">
+      <div class="flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/20 p-1 rounded-full shadow-lg">
+        <button id="prevSlideMobile" aria-label="Previous Slide Mobile" class="w-8 h-8 rounded-full bg-white/10 text-white hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        <button id="nextSlideMobile" aria-label="Next Slide Mobile" class="w-8 h-8 rounded-full bg-white/10 text-white hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
       </div>
 
-      <!-- Mobile Next Arrow -->
-      <button 
-        id="mobileNextSlide" 
-        aria-label="Next Slide" 
-        class="md:hidden w-8 h-8 rounded-full border border-white/30 bg-black/40 text-white flex items-center justify-center active:bg-regal-gold active:text-regal-deepGreen"
-      >
-        <i class="fa-solid fa-chevron-right text-xs"></i>
-      </button>
+      <!-- Slide Indicators / Dots for Mobile -->
+      <div class="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-2 rounded-full border border-white/20">
+        <button class="slider-dot w-6 h-1.5 rounded-full bg-regal-gold transition-all" data-index="0" aria-label="Slide 1"></button>
+        <button class="slider-dot w-2 h-1.5 rounded-full bg-white/40 transition-all" data-index="1" aria-label="Slide 2"></button>
+        <button class="slider-dot w-2 h-1.5 rounded-full bg-white/40 transition-all" data-index="2" aria-label="Slide 3"></button>
+      </div>
+    </div>
+
+    <!-- Desktop Slide Indicators / Dots -->
+    <div class="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 items-center gap-3 z-20">
+      <button class="slider-dot w-8 h-1.5 rounded-full bg-regal-gold transition-all" data-index="0" aria-label="Slide 1"></button>
+      <button class="slider-dot w-2.5 h-1.5 rounded-full bg-white/40 hover:bg-white/80 transition-all" data-index="1" aria-label="Slide 2"></button>
+      <button class="slider-dot w-2.5 h-1.5 rounded-full bg-white/40 hover:bg-white/80 transition-all" data-index="2" aria-label="Slide 3"></button>
     </div>
 
   </section>
 
+
   <!-- ======================================================== -->
   <!-- PART D: CATEGORIES SECTION                               -->
   <!-- ======================================================== -->
-  <section id="categories" class="py-16 sm:py-20 bg-regal-ivory">
+  <section id="categories" class="py-20 bg-regal-ivory">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Heading -->
-      <div class="text-center max-w-xl mx-auto mb-12">
-        <span class="text-regal-gold text-xs uppercase tracking-[0.25em] font-semibold">Artisanal Guilds</span>
-        <h2 class="font-serif text-3xl sm:text-4xl text-regal-emerald font-semibold mt-1.5">Curated Categories</h2>
-        <div class="w-12 h-0.5 bg-regal-gold mx-auto mt-3"></div>
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-regal-gold text-xs uppercase tracking-[0.3em] font-semibold">Artisanal Guilds</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-regal-emerald font-semibold mt-2">Curated Categories</h2>
+        <div class="w-16 h-0.5 bg-regal-gold mx-auto mt-4"></div>
+        <p class="text-regal-muted text-xs sm:text-sm mt-3 font-normal leading-relaxed">
+          From the gilded ghats of Varanasi to the imperial ateliers of Awadh, discover our handcrafted hallmarks.
+        </p>
       </div>
 
-      <!-- 5 Clean Category Cards -->
+      <!-- Categories Grid -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
         
-        <!-- Category 1 -->
+        <!-- Category Card 1 -->
         <a href="#products" class="group flex flex-col items-center text-center">
-          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-subtle group-hover:shadow-royal transition duration-300">
+          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-md group-hover:shadow-royal transition duration-500">
             <img 
               src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80" 
-              alt="Banarasi Katan Silks" 
+              alt="Banarasi Weaves" 
               class="w-full h-full object-cover zoom-hover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <span class="absolute bottom-4 left-0 right-0 text-white font-serif text-sm sm:text-base tracking-wider font-semibold drop-shadow">
+              Explore 14 Items
+            </span>
           </div>
-          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-3.5 group-hover:text-regal-gold transition">
-            Banarasi Katan
+          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-4 group-hover:text-regal-gold transition">
+            Banarasi Katan Silks
           </h3>
-          <p class="text-[11px] text-regal-muted uppercase tracking-wider mt-0.5">Pure Zari Brocades</p>
+          <p class="text-[11px] text-regal-muted uppercase tracking-widest mt-0.5">Pure Zari Brocades</p>
         </a>
 
-        <!-- Category 2 -->
+        <!-- Category Card 2 -->
         <a href="#products" class="group flex flex-col items-center text-center">
-          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-subtle group-hover:shadow-royal transition duration-300">
+          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-md group-hover:shadow-royal transition duration-500">
             <img 
               src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80" 
-              alt="Tissue and Organza Dupattas" 
+              alt="Zari Dupattas" 
               class="w-full h-full object-cover zoom-hover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <span class="absolute bottom-4 left-0 right-0 text-white font-serif text-sm sm:text-base tracking-wider font-semibold drop-shadow">
+              Explore 9 Items
+            </span>
           </div>
-          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-3.5 group-hover:text-regal-gold transition">
+          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-4 group-hover:text-regal-gold transition">
             Imperial Dupattas
           </h3>
-          <p class="text-[11px] text-regal-muted uppercase tracking-wider mt-0.5">Tissue &amp; Organza</p>
+          <p class="text-[11px] text-regal-muted uppercase tracking-widest mt-0.5">Tissue & Organza</p>
         </a>
 
-        <!-- Category 3 -->
+        <!-- Category Card 3 -->
         <a href="#products" class="group flex flex-col items-center text-center">
-          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-subtle group-hover:shadow-royal transition duration-300">
+          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-md group-hover:shadow-royal transition duration-500">
             <img 
               src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80" 
               alt="Raw Silk Kurtas" 
               class="w-full h-full object-cover zoom-hover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <span class="absolute bottom-4 left-0 right-0 text-white font-serif text-sm sm:text-base tracking-wider font-semibold drop-shadow">
+              Explore 12 Items
+            </span>
           </div>
-          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-3.5 group-hover:text-regal-gold transition">
+          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-4 group-hover:text-regal-gold transition">
             Raw Silk Kurtas
           </h3>
-          <p class="text-[11px] text-regal-muted uppercase tracking-wider mt-0.5">Marori Work</p>
+          <p class="text-[11px] text-regal-muted uppercase tracking-widest mt-0.5">Marori Embroidered</p>
         </a>
 
-        <!-- Category 4 -->
+        <!-- Category Card 4 -->
         <a href="#products" class="group flex flex-col items-center text-center">
-          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-subtle group-hover:shadow-royal transition duration-300">
+          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-md group-hover:shadow-royal transition duration-500">
             <img 
               src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=600&q=80" 
-              alt="Bridal Anarkalis" 
+              alt="Bridal Lehengas" 
               class="w-full h-full object-cover zoom-hover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <span class="absolute bottom-4 left-0 right-0 text-white font-serif text-sm sm:text-base tracking-wider font-semibold drop-shadow">
+              Explore 8 Masterpieces
+            </span>
           </div>
-          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-3.5 group-hover:text-regal-gold transition">
+          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-4 group-hover:text-regal-gold transition">
             Royal Anarkalis
           </h3>
-          <p class="text-[11px] text-regal-muted uppercase tracking-wider mt-0.5">Kalidar Cuts</p>
+          <p class="text-[11px] text-regal-muted uppercase tracking-widest mt-0.5">Kalidar Silhouettes</p>
         </a>
 
-        <!-- Category 5 -->
+        <!-- Category Card 5 -->
         <a href="#products" class="group flex flex-col items-center text-center col-span-2 sm:col-span-1">
-          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-subtle group-hover:shadow-royal transition duration-300">
+          <div class="w-full aspect-[4/5] bg-regal-cream overflow-hidden mughal-card-arch relative border border-regal-sand shadow-md group-hover:shadow-royal transition duration-500">
             <img 
               src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=600&q=80" 
               alt="Handcrafted Mojaris" 
               class="w-full h-full object-cover zoom-hover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-regal-deepGreen/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition"></div>
+            <span class="absolute bottom-4 left-0 right-0 text-white font-serif text-sm sm:text-base tracking-wider font-semibold drop-shadow">
+              Explore 11 Pairs
+            </span>
           </div>
-          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-3.5 group-hover:text-regal-gold transition">
-            Zari Mojaris
+          <h3 class="font-serif text-base sm:text-lg text-regal-emerald font-semibold mt-4 group-hover:text-regal-gold transition">
+            Handcrafted Mojaris
           </h3>
-          <p class="text-[11px] text-regal-muted uppercase tracking-wider mt-0.5">Dabka Embroidered</p>
+          <p class="text-[11px] text-regal-muted uppercase tracking-widest mt-0.5">Dabka & Velvet Juttis</p>
         </a>
 
       </div>
     </div>
   </section>
 
+
   <!-- ======================================================== -->
   <!-- PART E: PRODUCT LISTING SECTION (GRID & ACTIONS)          -->
   <!-- ======================================================== -->
-  <section id="products" class="py-16 sm:py-20 bg-regal-cream/40 border-y border-regal-sand">
+  <section id="products" class="py-20 bg-regal-cream/50 border-y border-regal-sand">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Header & Filter Pills -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-5">
+      <!-- Section Title & Filter Pills -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
-          <span class="text-regal-gold text-xs uppercase tracking-[0.25em] font-semibold">Bespoke Catalog</span>
-          <h2 class="font-serif text-3xl sm:text-4xl text-regal-emerald font-semibold mt-1">
+          <span class="text-regal-gold text-xs uppercase tracking-[0.3em] font-semibold">Masterpieces in Silk & Zari</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-regal-emerald font-semibold mt-2">
             The Imperial Collection
           </h2>
+          <p class="text-regal-muted text-xs sm:text-sm mt-1">Showing 6 timeless heirlooms handcrafted for eternity.</p>
         </div>
 
+        <!-- Filter Sub-Toggles -->
         <div class="flex flex-wrap gap-2 text-xs uppercase tracking-wider font-medium">
-          <button class="product-filter-btn px-4 py-1.5 rounded-full border border-regal-emerald bg-regal-emerald text-white transition" data-filter="all">All</button>
-          <button class="product-filter-btn px-4 py-1.5 rounded-full border border-regal-sand bg-white text-regal-emerald hover:border-regal-gold transition" data-filter="bestseller">Bestseller</button>
-          <button class="product-filter-btn px-4 py-1.5 rounded-full border border-regal-sand bg-white text-regal-emerald hover:border-regal-gold transition" data-filter="handcrafted">Handcrafted</button>
-          <button class="product-filter-btn px-4 py-1.5 rounded-full border border-regal-sand bg-white text-regal-emerald hover:border-regal-gold transition" data-filter="limited">Limited Edition</button>
+          <button class="product-filter-btn px-4 py-2 rounded-full border border-regal-emerald bg-regal-emerald text-white transition" data-filter="all">All</button>
+          <button class="product-filter-btn px-4 py-2 rounded-full border border-regal-sand bg-white text-regal-emerald hover:border-regal-gold transition" data-filter="bestseller">Bestseller</button>
+          <button class="product-filter-btn px-4 py-2 rounded-full border border-regal-sand bg-white text-regal-emerald hover:border-regal-gold transition" data-filter="handcrafted">Handcrafted</button>
+          <button class="product-filter-btn px-4 py-2 rounded-full border border-regal-sand bg-white text-regal-emerald hover:border-regal-gold transition" data-filter="limited">Limited Edition</button>
         </div>
       </div>
 
       <!-- Product Cards Grid -->
-      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- CARD 1 -->
-        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-subtle transition-all duration-300" data-badge="bestseller">
-          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/20">
-            <span class="absolute top-3 left-3 z-10 bg-regal-emerald text-regal-lightGold text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded">
+        <!-- PRODUCT 1 -->
+        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-royal transition-all duration-300" data-badge="bestseller">
+          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/30">
+            <!-- Product Badge -->
+            <span class="absolute top-3 left-3 z-10 bg-regal-emerald text-regal-lightGold text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded shadow">
               Bestseller
             </span>
 
+            <!-- Interactive Wishlist Heart Button -->
             <button 
-              aria-label="Toggle Wishlist"
-              class="wishlist-btn absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 text-regal-emerald hover:text-red-600 flex items-center justify-center transition shadow-sm"
+              aria-label="Add to Wishlist"
+              class="wishlist-btn absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm text-regal-emerald hover:text-red-600 flex items-center justify-center transition shadow hover:scale-110"
               data-id="prod-1"
+              data-title="Noor-e-Benares Katan Saree"
+              data-price="46500"
+              data-img="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=200&q=80"
+              data-desc="Pure silver zari kadwa work with royal crimson pallu border."
             >
               <i class="fa-regular fa-heart text-sm"></i>
             </button>
 
+            <!-- Product Image -->
             <img 
               src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80" 
-              alt="Noor-e-Benares Katan Saree" 
+              alt="Noor-e-Benares Royal Katan Silk Saree" 
               class="w-full h-full object-cover zoom-hover"
             />
           </div>
 
+          <!-- Product Details -->
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
+              <div class="flex items-center gap-1 text-regal-gold text-xs mb-1">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="text-regal-muted text-[11px] ml-1">(28 reviews)</span>
+              </div>
               <h3 class="font-serif text-lg font-semibold text-regal-emerald group-hover:text-regal-gold transition">
                 Noor-e-Benares Katan Saree
               </h3>
-              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Pure silver zari kadwa weave with crimson border.</p>
+              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Pure silver zari kadwa work with royal crimson pallu border.</p>
             </div>
 
             <div class="mt-4 pt-4 border-t border-regal-sand/60 flex items-center justify-between">
               <div>
-                <span class="text-xs text-regal-muted line-through mr-1">₹54,000</span>
+                <span class="text-xs text-regal-muted line-through mr-1.5">₹54,000</span>
                 <span class="font-serif text-lg font-bold text-regal-emerald">₹46,500</span>
               </div>
 
+              <!-- Interactive Add to Cart Button -->
               <button 
-                class="add-to-cart-btn inline-flex items-center gap-1.5 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition"
+                class="add-to-cart-btn inline-flex items-center gap-2 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition shadow-sm"
                 data-id="prod-1"
                 data-title="Noor-e-Benares Katan Saree"
                 data-price="46500"
@@ -706,44 +757,60 @@
           </div>
         </article>
 
-        <!-- CARD 2 -->
-        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-subtle transition-all duration-300" data-badge="handcrafted">
-          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/20">
-            <span class="absolute top-3 left-3 z-10 bg-regal-gold text-regal-deepGreen text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded">
+        <!-- PRODUCT 2 -->
+        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-royal transition-all duration-300" data-badge="handcrafted">
+          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/30">
+            <!-- Product Badge -->
+            <span class="absolute top-3 left-3 z-10 bg-regal-gold text-regal-deepGreen text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded shadow">
               Handcrafted
             </span>
 
+            <!-- Wishlist Heart Button -->
             <button 
-              aria-label="Toggle Wishlist"
-              class="wishlist-btn absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 text-regal-emerald hover:text-red-600 flex items-center justify-center transition shadow-sm"
+              aria-label="Add to Wishlist"
+              class="wishlist-btn absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm text-regal-emerald hover:text-red-600 flex items-center justify-center transition shadow hover:scale-110"
               data-id="prod-2"
+              data-title="Gulrukh Silk Anarkali Set"
+              data-price="32500"
+              data-img="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=200&q=80"
+              data-desc="Emerald raw silk kurta with gold dabka and matching brocade dupatta."
             >
               <i class="fa-regular fa-heart text-sm"></i>
             </button>
 
+            <!-- Product Image -->
             <img 
               src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=700&q=80" 
-              alt="Gulrukh Silk Anarkali Set" 
+              alt="Gulrukh Zardozi Embroidered Kurta Set" 
               class="w-full h-full object-cover zoom-hover"
             />
           </div>
 
+          <!-- Product Details -->
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
+              <div class="flex items-center gap-1 text-regal-gold text-xs mb-1">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <span class="text-regal-muted text-[11px] ml-1">(19 reviews)</span>
+              </div>
               <h3 class="font-serif text-lg font-semibold text-regal-emerald group-hover:text-regal-gold transition">
                 Gulrukh Silk Anarkali Set
               </h3>
-              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Emerald raw silk with gold dabka and brocade border.</p>
+              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Emerald raw silk kurta with gold dabka and matching brocade dupatta.</p>
             </div>
 
             <div class="mt-4 pt-4 border-t border-regal-sand/60 flex items-center justify-between">
               <div>
-                <span class="text-xs text-regal-muted line-through mr-1">₹38,000</span>
+                <span class="text-xs text-regal-muted line-through mr-1.5">₹38,000</span>
                 <span class="font-serif text-lg font-bold text-regal-emerald">₹32,500</span>
               </div>
 
               <button 
-                class="add-to-cart-btn inline-flex items-center gap-1.5 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition"
+                class="add-to-cart-btn inline-flex items-center gap-2 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition shadow-sm"
                 data-id="prod-2"
                 data-title="Gulrukh Silk Anarkali Set"
                 data-price="32500"
@@ -756,21 +823,28 @@
           </div>
         </article>
 
-        <!-- CARD 3 -->
-        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-subtle transition-all duration-300" data-badge="limited">
-          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/20">
-            <span class="absolute top-3 left-3 z-10 bg-regal-deepGreen text-regal-lightGold border border-regal-gold/40 text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded">
+        <!-- PRODUCT 3 -->
+        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-royal transition-all duration-300" data-badge="limited">
+          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/30">
+            <!-- Product Badge -->
+            <span class="absolute top-3 left-3 z-10 bg-regal-deepGreen text-regal-lightGold border border-regal-gold/40 text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded shadow">
               Limited Edition
             </span>
 
+            <!-- Wishlist Heart Button -->
             <button 
-              aria-label="Toggle Wishlist"
-              class="wishlist-btn active absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 text-red-600 flex items-center justify-center transition shadow-sm"
+              aria-label="Add to Wishlist"
+              class="wishlist-btn active absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm text-red-600 flex items-center justify-center transition shadow hover:scale-110"
               data-id="prod-3"
+              data-title="Shehzadi Velvet Bridal Lehenga"
+              data-price="155000"
+              data-img="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=200&q=80"
+              data-desc="Hand-embroidered marori borders, beaten gold tilla, and double dupatta."
             >
               <i class="fa-solid fa-heart text-sm"></i>
             </button>
 
+            <!-- Product Image -->
             <img 
               src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=700&q=80" 
               alt="Shehzadi Velvet Bridal Lehenga" 
@@ -778,22 +852,31 @@
             />
           </div>
 
+          <!-- Product Details -->
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
+              <div class="flex items-center gap-1 text-regal-gold text-xs mb-1">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="text-regal-muted text-[11px] ml-1">(44 reviews)</span>
+              </div>
               <h3 class="font-serif text-lg font-semibold text-regal-emerald group-hover:text-regal-gold transition">
                 Shehzadi Velvet Bridal Lehenga
               </h3>
-              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Hand-embroidered marori borders with beaten gold tilla.</p>
+              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Hand-embroidered marori borders, beaten gold tilla, and double dupatta.</p>
             </div>
 
             <div class="mt-4 pt-4 border-t border-regal-sand/60 flex items-center justify-between">
               <div>
-                <span class="text-xs text-regal-muted line-through mr-1">₹1,85,000</span>
+                <span class="text-xs text-regal-muted line-through mr-1.5">₹1,85,000</span>
                 <span class="font-serif text-lg font-bold text-regal-emerald">₹1,55,000</span>
               </div>
 
               <button 
-                class="add-to-cart-btn inline-flex items-center gap-1.5 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition"
+                class="add-to-cart-btn inline-flex items-center gap-2 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition shadow-sm"
                 data-id="prod-3"
                 data-title="Shehzadi Velvet Bridal Lehenga"
                 data-price="155000"
@@ -806,21 +889,28 @@
           </div>
         </article>
 
-        <!-- CARD 4 -->
-        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-subtle transition-all duration-300" data-badge="bestseller">
-          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/20">
-            <span class="absolute top-3 left-3 z-10 bg-regal-emerald text-regal-lightGold text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded">
+        <!-- PRODUCT 4 -->
+        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-royal transition-all duration-300" data-badge="bestseller">
+          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/30">
+            <!-- Product Badge -->
+            <span class="absolute top-3 left-3 z-10 bg-regal-emerald text-regal-lightGold text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded shadow">
               Bestseller
             </span>
 
+            <!-- Wishlist Heart Button -->
             <button 
-              aria-label="Toggle Wishlist"
-              class="wishlist-btn absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 text-regal-emerald hover:text-red-600 flex items-center justify-center transition shadow-sm"
+              aria-label="Add to Wishlist"
+              class="wishlist-btn absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm text-regal-emerald hover:text-red-600 flex items-center justify-center transition shadow hover:scale-110"
               data-id="prod-4"
+              data-title="Mumtaz Tissue Odhani Dupatta"
+              data-price="19800"
+              data-img="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=200&q=80"
+              data-desc="Lightweight metallic gold tissue with scalloped hand-cut gota kinari."
             >
               <i class="fa-regular fa-heart text-sm"></i>
             </button>
 
+            <!-- Product Image -->
             <img 
               src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=700&q=80" 
               alt="Mumtaz Gold Tissue Odhani Dupatta" 
@@ -828,22 +918,31 @@
             />
           </div>
 
+          <!-- Product Details -->
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
+              <div class="flex items-center gap-1 text-regal-gold text-xs mb-1">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="text-regal-muted text-[11px] ml-1">(12 reviews)</span>
+              </div>
               <h3 class="font-serif text-lg font-semibold text-regal-emerald group-hover:text-regal-gold transition">
                 Mumtaz Tissue Odhani Dupatta
               </h3>
-              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Lightweight metallic gold tissue with scalloped gota kinari.</p>
+              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Lightweight metallic gold tissue with scalloped hand-cut gota kinari.</p>
             </div>
 
             <div class="mt-4 pt-4 border-t border-regal-sand/60 flex items-center justify-between">
               <div>
-                <span class="text-xs text-regal-muted line-through mr-1">₹24,000</span>
+                <span class="text-xs text-regal-muted line-through mr-1.5">₹24,000</span>
                 <span class="font-serif text-lg font-bold text-regal-emerald">₹19,800</span>
               </div>
 
               <button 
-                class="add-to-cart-btn inline-flex items-center gap-1.5 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition"
+                class="add-to-cart-btn inline-flex items-center gap-2 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition shadow-sm"
                 data-id="prod-4"
                 data-title="Mumtaz Tissue Odhani Dupatta"
                 data-price="19800"
@@ -856,44 +955,60 @@
           </div>
         </article>
 
-        <!-- CARD 5 -->
-        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-subtle transition-all duration-300" data-badge="handcrafted">
-          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/20">
-            <span class="absolute top-3 left-3 z-10 bg-regal-gold text-regal-deepGreen text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded">
+        <!-- PRODUCT 5 -->
+        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-royal transition-all duration-300" data-badge="handcrafted">
+          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/30">
+            <!-- Product Badge -->
+            <span class="absolute top-3 left-3 z-10 bg-regal-gold text-regal-deepGreen text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded shadow">
               Handcrafted
             </span>
 
+            <!-- Wishlist Heart Button -->
             <button 
-              aria-label="Toggle Wishlist"
-              class="wishlist-btn absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 text-regal-emerald hover:text-red-600 flex items-center justify-center transition shadow-sm"
+              aria-label="Add to Wishlist"
+              class="wishlist-btn absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm text-regal-emerald hover:text-red-600 flex items-center justify-center transition shadow hover:scale-110"
               data-id="prod-5"
+              data-title="Jahanara Zari Mojari Slippers"
+              data-price="8900"
+              data-img="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=200&q=80"
+              data-desc="Cushioned genuine leather sole featuring ornate hand-embroidered dabka floral crests."
             >
               <i class="fa-regular fa-heart text-sm"></i>
             </button>
 
+            <!-- Product Image -->
             <img 
               src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80" 
-              alt="Jahanara Zari Mojari Slippers" 
+              alt="Jahanara Zari Embroidered Mojari" 
               class="w-full h-full object-cover zoom-hover"
             />
           </div>
 
+          <!-- Product Details -->
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
+              <div class="flex items-center gap-1 text-regal-gold text-xs mb-1">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <span class="text-regal-muted text-[11px] ml-1">(31 reviews)</span>
+              </div>
               <h3 class="font-serif text-lg font-semibold text-regal-emerald group-hover:text-regal-gold transition">
                 Jahanara Zari Mojari Slippers
               </h3>
-              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Cushioned pure leather sole with hand-embroidered dabka crests.</p>
+              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Cushioned genuine leather sole featuring ornate hand-embroidered dabka floral crests.</p>
             </div>
 
             <div class="mt-4 pt-4 border-t border-regal-sand/60 flex items-center justify-between">
               <div>
-                <span class="text-xs text-regal-muted line-through mr-1">₹11,500</span>
+                <span class="text-xs text-regal-muted line-through mr-1.5">₹11,500</span>
                 <span class="font-serif text-lg font-bold text-regal-emerald">₹8,900</span>
               </div>
 
               <button 
-                class="add-to-cart-btn inline-flex items-center gap-1.5 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition"
+                class="add-to-cart-btn inline-flex items-center gap-2 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition shadow-sm"
                 data-id="prod-5"
                 data-title="Jahanara Zari Mojari Slippers"
                 data-price="8900"
@@ -906,44 +1021,60 @@
           </div>
         </article>
 
-        <!-- CARD 6 -->
-        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-subtle transition-all duration-300" data-badge="limited">
-          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/20">
-            <span class="absolute top-3 left-3 z-10 bg-regal-deepGreen text-regal-lightGold border border-regal-gold/40 text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded">
+        <!-- PRODUCT 6 -->
+        <article class="product-card group bg-white border border-regal-sand/80 rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-royal transition-all duration-300" data-badge="limited">
+          <div class="relative w-full aspect-[3/4] overflow-hidden bg-regal-sand/30">
+            <!-- Product Badge -->
+            <span class="absolute top-3 left-3 z-10 bg-regal-deepGreen text-regal-lightGold border border-regal-gold/40 text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded shadow">
               Limited Edition
             </span>
 
+            <!-- Wishlist Heart Button -->
             <button 
-              aria-label="Toggle Wishlist"
-              class="wishlist-btn active absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 text-red-600 flex items-center justify-center transition shadow-sm"
+              aria-label="Add to Wishlist"
+              class="wishlist-btn active absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm text-red-600 flex items-center justify-center transition shadow hover:scale-110"
               data-id="prod-6"
+              data-title="Darbar Handspun Pashmina Shawl"
+              data-price="64000"
+              data-img="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+              data-desc="Sozni hand needlework woven over four seasonal cycles in Kashmir Valley."
             >
               <i class="fa-solid fa-heart text-sm"></i>
             </button>
 
+            <!-- Product Image -->
             <img 
               src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80" 
-              alt="Darbar Handspun Pashmina Shawl" 
+              alt="Darbar Handwoven Kashmiri Pashmina Shawl" 
               class="w-full h-full object-cover zoom-hover"
             />
           </div>
 
+          <!-- Product Details -->
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
+              <div class="flex items-center gap-1 text-regal-gold text-xs mb-1">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="text-regal-muted text-[11px] ml-1">(57 reviews)</span>
+              </div>
               <h3 class="font-serif text-lg font-semibold text-regal-emerald group-hover:text-regal-gold transition">
                 Darbar Handspun Pashmina Shawl
               </h3>
-              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Sozni needlework woven across multiple seasonal cycles.</p>
+              <p class="text-xs text-regal-muted line-clamp-1 mt-1">Sozni hand needlework woven over four seasonal cycles in Kashmir Valley.</p>
             </div>
 
             <div class="mt-4 pt-4 border-t border-regal-sand/60 flex items-center justify-between">
               <div>
-                <span class="text-xs text-regal-muted line-through mr-1">₹72,000</span>
+                <span class="text-xs text-regal-muted line-through mr-1.5">₹72,000</span>
                 <span class="font-serif text-lg font-bold text-regal-emerald">₹64,000</span>
               </div>
 
               <button 
-                class="add-to-cart-btn inline-flex items-center gap-1.5 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition"
+                class="add-to-cart-btn inline-flex items-center gap-2 bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded transition shadow-sm"
                 data-id="prod-6"
                 data-title="Darbar Handspun Pashmina Shawl"
                 data-price="64000"
@@ -958,95 +1089,165 @@
 
       </div>
 
+      <!-- Bottom View All Banner -->
+      <div class="mt-14 text-center">
+        <a href="#story" class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-regal-emerald font-semibold border-b-2 border-regal-gold pb-1 hover:text-regal-gold transition">
+          <span>Discover the Entire Bridal Archive (48 Creations)</span>
+          <i class="fa-solid fa-arrow-right-long text-xs text-regal-gold"></i>
+        </a>
+      </div>
+
     </div>
   </section>
 
+
   <!-- ======================================================== -->
-  <!-- PART F: STORYTELLING SECTION (3 IMAGES + NARRATIVE)      -->
+  <!-- PART F: STORYTELLING / BRAND STORY SECTION               -->
   <!-- ======================================================== -->
-  <section id="story" class="py-20 sm:py-24 bg-regal-deepGreen text-white relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="story" class="py-24 bg-regal-deepGreen text-white relative overflow-hidden">
+    
+    <!-- Decorative Watermark Graphic -->
+    <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full border border-regal-gold/10 pointer-events-none"></div>
+    <div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full border border-regal-gold/10 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="text-regal-gold text-xs uppercase tracking-[0.3em] font-semibold">Artisan Chronicles</span>
-        <h2 class="font-serif text-3xl sm:text-5xl font-light text-white mt-2">
-          The Craft of <span class="italic text-regal-lightGold">ZOHRA</span>
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-regal-gold text-xs uppercase tracking-[0.35em] font-semibold">An Imperial Odyssey</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-light text-white mt-3">
+          The Living Heritage of <span class="italic font-normal gold-gradient-text">ZOHRA</span>
         </h2>
-        <div class="w-16 h-0.5 bg-regal-gold mx-auto mt-4"></div>
+        <div class="w-20 h-0.5 bg-regal-gold mx-auto mt-5"></div>
+        <p class="text-gray-300 text-xs sm:text-sm font-light mt-4 leading-relaxed">
+          Every weave at ZOHRA is an homage to six centuries of royal Indian textile tradition — resurrecting forgotten Mughal motifs with ethical weaver cooperatives.
+        </p>
       </div>
 
-      <div class="space-y-20">
+      <!-- Story Narrative Panels (Minimum 3 images & stories) -->
+      <div class="space-y-24">
 
-        <!-- Image 1 & Story -->
-        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-14">
-          <div class="w-full lg:w-1/2">
-            <div class="relative aspect-[4/3] rounded overflow-hidden border border-regal-gold/25 shadow-lg">
+        <!-- Story Panel 1: The Loom of Benares -->
+        <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          <div class="w-full lg:w-1/2 relative">
+            <div class="relative aspect-[4/3] rounded-lg overflow-hidden border border-regal-gold/30 shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80" 
-                alt="Handloom pit loom weaving in Benares" 
+                alt="Ancestral Handloom Weaving in Varanasi" 
                 class="w-full h-full object-cover"
                 loading="lazy"
               />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-xs tracking-wider text-regal-lightGold font-serif italic">
+                Plate I — Master Weaver Mohammed Rafiq at the Pit Loom, Madanpura
+              </div>
             </div>
+            <!-- Offset decorative box -->
+            <div class="hidden sm:block absolute -bottom-5 -left-5 w-24 h-24 border-2 border-regal-gold/40 rounded -z-10"></div>
           </div>
-          <div class="w-full lg:w-1/2 space-y-4">
-            <span class="text-xs uppercase tracking-widest text-regal-gold font-semibold">The Warp of Benares</span>
-            <h3 class="font-serif text-2xl sm:text-3xl font-light text-white">Ancestral Rhythms at the Pit Loom</h3>
+
+          <div class="w-full lg:w-1/2 space-y-5">
+            <span class="text-xs uppercase tracking-[0.25em] text-regal-gold font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-scroll text-sm"></i> Chapter I: The Sacred Warp
+            </span>
+            <h3 class="font-serif text-2xl sm:text-4xl font-light text-white leading-tight">
+              The Loom of Benares: Rhythms in Pure Silk
+            </h3>
             <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
-              Every heirloom drape begins on generational timber looms in Madanpura. Using the antique Kadwa technique, each gold leaf motif is individually locked into place, taking up to three months of focused human dedication.
+              In the narrow lanes along the holy Ganges, our weavers practice the antique <em class="text-regal-lightGold">Kadwa</em> and <em class="text-regal-lightGold">Fekwa</em> techniques. Unlike modern automated Jacquards, each golden leaf motif is engraved by hand, taking up to three months to complete a single heirloom drape.
             </p>
-            <p class="text-xs text-regal-lightGold italic font-serif">
-              "We weave not merely fabric, but the living memory of India's classical court traditions."
-            </p>
+            <blockquote class="border-l-2 border-regal-gold pl-4 text-sm font-serif italic text-regal-lightGold/90 py-1">
+              "We do not merely weave silk; we thread the memories of courtyards, monsoons, and Mughal palaces."
+            </blockquote>
+            <div class="pt-2 flex items-center gap-6 text-xs text-gray-400">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-award text-regal-gold"></i>
+                <span>100% Silk Mark Certified</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-hand-holding-heart text-regal-gold"></i>
+                <span>Fair-Wage Guild Guarantee</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Image 2 & Story -->
-        <div class="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-14">
-          <div class="w-full lg:w-1/2 space-y-4">
-            <span class="text-xs uppercase tracking-widest text-regal-gold font-semibold">The Gilded Needle</span>
-            <h3 class="font-serif text-2xl sm:text-3xl font-light text-white">Hallmarked Silver Zari &amp; Beaten Dabka</h3>
+        <!-- Story Panel 2: The Thread of Gold -->
+        <div class="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
+          <div class="w-full lg:w-1/2 space-y-5">
+            <span class="text-xs uppercase tracking-[0.25em] text-regal-gold font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-feather text-sm"></i> Chapter II: The Gilded Needle
+            </span>
+            <h3 class="font-serif text-2xl sm:text-4xl font-light text-white leading-tight">
+              The Thread of Gold: Pure Real Zari & Dabka
+            </h3>
             <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
-              Our embroidery uses real silver wire drawn into whisper-thin filaments and electroplated in 24k gold. Master karigars in Awadh affix each dabka spiral alongside delicate seed pearls to cultivate an authentic, enduring luster.
+              True Zari is not copper or synthetic plastic; it begins with silver ingots drawn into micro-filaments finer than a whisper, then electroplated with 24-karat gold leaf. Our master karigars in Awadh spend weeks couching this thread alongside basra seed pearls to forge regal court attire.
             </p>
-            <p class="text-xs text-regal-lightGold italic font-serif">
-              "True Zari never flashes harshly; it radiates with the gentle dignity of noble heirlooms."
-            </p>
+            <blockquote class="border-l-2 border-regal-gold pl-4 text-sm font-serif italic text-regal-lightGold/90 py-1">
+              "When light cascades across true Zari, it does not flash — it glows with an eternal, sovereign warmth."
+            </blockquote>
+            <div class="pt-2 flex items-center gap-6 text-xs text-gray-400">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-regal-gold"></i>
+                <span>Hallmarked Pure Silver Core</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-compass-drafting text-regal-gold"></i>
+                <span>Original Awadhi Stitches</span>
+              </div>
+            </div>
           </div>
-          <div class="w-full lg:w-1/2">
-            <div class="relative aspect-[4/3] rounded overflow-hidden border border-regal-gold/25 shadow-lg">
+
+          <div class="w-full lg:w-1/2 relative">
+            <div class="relative aspect-[4/3] rounded-lg overflow-hidden border border-regal-gold/30 shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80" 
-                alt="Authentic Zardozi Needlework" 
+                alt="Awadhi Zardozi and Dabka Gold Embroidery" 
                 class="w-full h-full object-cover"
                 loading="lazy"
               />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-xs tracking-wider text-regal-lightGold font-serif italic">
+                Plate II — The Gilded Needlework on Silk Velvet, Lucknow Atelier
+              </div>
             </div>
+            <div class="hidden sm:block absolute -top-5 -right-5 w-24 h-24 border-2 border-regal-gold/40 rounded -z-10"></div>
           </div>
         </div>
 
-        <!-- Image 3 & Story -->
-        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-14">
-          <div class="w-full lg:w-1/2">
-            <div class="relative aspect-[4/3] rounded overflow-hidden border border-regal-gold/25 shadow-lg">
+        <!-- Story Panel 3: A Legacy Reimagined -->
+        <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          <div class="w-full lg:w-1/2 relative">
+            <div class="relative aspect-[4/3] rounded-lg overflow-hidden border border-regal-gold/30 shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80" 
-                alt="Modern Heirloom Silhouettes" 
+                alt="Contemporary Royal Indian Couture" 
                 class="w-full h-full object-cover"
                 loading="lazy"
               />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-xs tracking-wider text-regal-lightGold font-serif italic">
+                Plate III — The Contemporary Trousseau at Lake Palace, Udaipur
+              </div>
             </div>
+            <div class="hidden sm:block absolute -bottom-5 -left-5 w-24 h-24 border-2 border-regal-gold/40 rounded -z-10"></div>
           </div>
-          <div class="w-full lg:w-1/2 space-y-4">
-            <span class="text-xs uppercase tracking-widest text-regal-gold font-semibold">The Modern Bride</span>
-            <h3 class="font-serif text-2xl sm:text-3xl font-light text-white">Heirlooms Handed Across Generations</h3>
+
+          <div class="w-full lg:w-1/2 space-y-5">
+            <span class="text-xs uppercase tracking-[0.25em] text-regal-gold font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-crown text-sm"></i> Chapter III: The New Sovereign
+            </span>
+            <h3 class="font-serif text-2xl sm:text-4xl font-light text-white leading-tight">
+              A Legacy Reimagined for the Modern Bride
+            </h3>
             <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
-              Designed with balanced drape weight and clean silhouettes, ZOHRA pieces move gracefully with the wearer. Every piece is woven to be preserved and cherished down through family generations.
+              ZOHRA creates heirlooms destined to be handed down from grandmother to daughter. Lightweight silhouettes engineered for effortless movement, without ever relinquishing the weight of Indian history.
             </p>
-            <div class="pt-2">
-              <a href="#products" class="inline-flex items-center gap-2 bg-regal-gold hover:bg-regal-lightGold text-regal-deepGreen font-semibold px-6 py-2.5 text-xs uppercase tracking-wider transition">
-                <span>View The Grid</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            <div class="pt-4 flex items-center gap-4">
+              <a href="#products" class="inline-flex items-center gap-3 bg-regal-gold hover:bg-regal-lightGold text-regal-deepGreen font-semibold px-7 py-3 text-xs uppercase tracking-wider transition">
+                <span>Commission an Heirloom</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
           </div>
@@ -1056,101 +1257,111 @@
     </div>
   </section>
 
+
   <!-- ======================================================== -->
-  <!-- PART G: FOOTER (4 COLUMNS + BRAND INFO)                  -->
+  <!-- PART G: COMPREHENSIVE FOOTER                             -->
   <!-- ======================================================== -->
-  <footer id="footer" class="bg-regal-deepGreen text-regal-sand border-t border-regal-gold/25 pt-14 pb-10">
+  <footer id="footer" class="bg-regal-deepGreen text-regal-sand border-t border-regal-gold/30 pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-regal-sand/20">
+      <!-- Top Grid: Brand & 4 Menu Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-regal-sand/20">
         
-        <!-- Brand Information Column -->
-        <div class="lg:col-span-4 space-y-4">
-          <div>
-            <span class="font-serif text-2xl tracking-[0.2em] font-semibold text-white uppercase block">ZOHRA</span>
-            <span class="text-[9px] tracking-[0.3em] uppercase text-regal-gold font-medium block">Heritage &bull; Couture</span>
-          </div>
+        <!-- Brand Information Column (4 cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <a href="#" class="inline-block">
+            <span class="font-serif text-3xl tracking-[0.25em] font-semibold text-white uppercase">ZOHRA</span>
+            <p class="text-[9px] tracking-[0.35em] uppercase text-regal-gold font-medium mt-0.5">Heritage &bull; Couture</p>
+          </a>
           <p class="text-xs text-gray-300 leading-relaxed font-light max-w-sm">
-            Preserving classical Indian handloom traditions. Purveyors of pure Benares Katan silk, Awadhi zardozi embroidery, and bespoke bridal drapes.
+            Preserving Indian handloom royalty since 1984. Purveyors of pure Benares Katan silk, Awadhi zardozi craft, and bespoke bridal heirlooms crafted by generational master artisans.
           </p>
 
           <!-- Contact Details -->
-          <div class="space-y-1.5 text-xs text-gray-300 font-light pt-1">
-            <p class="flex items-center gap-2.5">
-              <i class="fa-solid fa-location-dot text-regal-gold text-xs w-3.5"></i>
-              <span>Taj Santacruz, Mumbai, Maharashtra</span>
+          <div class="space-y-2 text-xs text-gray-300 font-light pt-2">
+            <p class="flex items-center gap-3">
+              <i class="fa-solid fa-location-dot text-regal-gold text-sm w-4"></i>
+              <span>The Oberoi Amarvilas &bull; Taj Santacruz, Mumbai</span>
             </p>
-            <p class="flex items-center gap-2.5">
-              <i class="fa-solid fa-phone text-regal-gold text-xs w-3.5"></i>
-              <span>+91 (022) 8920 4455</span>
+            <p class="flex items-center gap-3">
+              <i class="fa-solid fa-phone text-regal-gold text-sm w-4"></i>
+              <span>+91 (022) 8920 4455 / +91 1800 234 567</span>
             </p>
-            <p class="flex items-center gap-2.5">
-              <i class="fa-solid fa-envelope text-regal-gold text-xs w-3.5"></i>
+            <p class="flex items-center gap-3">
+              <i class="fa-solid fa-envelope text-regal-gold text-sm w-4"></i>
               <span>concierge@zohracouture.com</span>
             </p>
           </div>
 
-          <!-- Social Icons -->
-          <div class="flex items-center gap-3 pt-2">
-            <span class="w-8 h-8 rounded-full border border-regal-gold/40 text-regal-gold hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center text-xs cursor-pointer">
+          <!-- Social Media Icons -->
+          <div class="flex items-center gap-4 pt-3">
+            <a href="#" aria-label="ZOHRA on Instagram" class="w-9 h-9 rounded-full border border-regal-gold/40 text-regal-gold hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center text-sm">
               <i class="fa-brands fa-instagram"></i>
-            </span>
-            <span class="w-8 h-8 rounded-full border border-regal-gold/40 text-regal-gold hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center text-xs cursor-pointer">
+            </a>
+            <a href="#" aria-label="ZOHRA on Pinterest" class="w-9 h-9 rounded-full border border-regal-gold/40 text-regal-gold hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center text-sm">
               <i class="fa-brands fa-pinterest-p"></i>
-            </span>
-            <span class="w-8 h-8 rounded-full border border-regal-gold/40 text-regal-gold hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center text-xs cursor-pointer">
+            </a>
+            <a href="#" aria-label="ZOHRA on Facebook" class="w-9 h-9 rounded-full border border-regal-gold/40 text-regal-gold hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center text-sm">
               <i class="fa-brands fa-facebook-f"></i>
-            </span>
-            <span class="w-8 h-8 rounded-full border border-regal-gold/40 text-regal-gold hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center text-xs cursor-pointer">
+            </a>
+            <a href="#" aria-label="ZOHRA on YouTube" class="w-9 h-9 rounded-full border border-regal-gold/40 text-regal-gold hover:bg-regal-gold hover:text-regal-deepGreen transition flex items-center justify-center text-sm">
               <i class="fa-brands fa-youtube"></i>
-            </span>
+            </a>
           </div>
         </div>
 
-        <!-- 4 Clean Menu Columns -->
-        <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-6">
+        <!-- 4 Distinct Menu Columns (8 cols) -->
+        <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
           
-          <!-- Column 1 -->
+          <!-- Column 1: Shop -->
           <div>
-            <h4 class="text-xs uppercase tracking-wider font-semibold text-regal-gold mb-3">Collections</h4>
-            <ul class="space-y-2 text-xs font-light text-gray-300">
-              <li><a href="#products" class="hover:text-regal-gold transition">Banarasi Silks</a></li>
-              <li><a href="#products" class="hover:text-regal-gold transition">Bridal Lehengas</a></li>
-              <li><a href="#products" class="hover:text-regal-gold transition">Velvet Shawls</a></li>
-              <li><a href="#products" class="hover:text-regal-gold transition">Zardozi Pret</a></li>
+            <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-regal-gold mb-4">The Collections</h4>
+            <ul class="space-y-2.5 text-xs font-light text-gray-300">
+              <li><a href="#products" class="hover:text-regal-gold transition">Royal Bridal Lehengas</a></li>
+              <li><a href="#products" class="hover:text-regal-gold transition">Banarasi Katan Sarees</a></li>
+              <li><a href="#products" class="hover:text-regal-gold transition">Imperial Velvet Shawls</a></li>
+              <li><a href="#products" class="hover:text-regal-gold transition">Awadhi Kalidar Anarkalis</a></li>
+              <li><a href="#products" class="hover:text-regal-gold transition">Zari Mojaris & Juttis</a></li>
+              <li><a href="#products" class="hover:text-regal-gold transition">Trousseau Accessories</a></li>
             </ul>
           </div>
 
-          <!-- Column 2 -->
+          <!-- Column 2: Heritage & Craft -->
           <div>
-            <h4 class="text-xs uppercase tracking-wider font-semibold text-regal-gold mb-3">The Craft</h4>
-            <ul class="space-y-2 text-xs font-light text-gray-300">
-              <li><a href="#story" class="hover:text-regal-gold transition">Benares Looms</a></li>
-              <li><a href="#story" class="hover:text-regal-gold transition">Real Silver Zari</a></li>
-              <li><a href="#story" class="hover:text-regal-gold transition">Awadh Karigars</a></li>
-              <li><a href="#story" class="hover:text-regal-gold transition">Silk Mark Trust</a></li>
+            <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-regal-gold mb-4">Heritage & Craft</h4>
+            <ul class="space-y-2.5 text-xs font-light text-gray-300">
+              <li><a href="#story" class="hover:text-regal-gold transition">The Benares Artisans</a></li>
+              <li><a href="#story" class="hover:text-regal-gold transition">Real Silver Zari Story</a></li>
+              <li><a href="#story" class="hover:text-regal-gold transition">The Awadh Atelier Archive</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Care & Preservations</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Silk Mark Authentication</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Weavers Benefit Trust</a></li>
             </ul>
           </div>
 
-          <!-- Column 3 -->
+          <!-- Column 3: Customer Care -->
           <div>
-            <h4 class="text-xs uppercase tracking-wider font-semibold text-regal-gold mb-3">Concierge</h4>
-            <ul class="space-y-2 text-xs font-light text-gray-300">
-              <li><a href="#footer" class="hover:text-regal-gold transition">Order Tracking</a></li>
-              <li><a href="#footer" class="hover:text-regal-gold transition">Insured Delivery</a></li>
-              <li><a href="#footer" class="hover:text-regal-gold transition">Bespoke Fitting</a></li>
-              <li><a href="#footer" class="hover:text-regal-gold transition">Care &amp; Storage</a></li>
+            <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-regal-gold mb-4">Concierge Care</h4>
+            <ul class="space-y-2.5 text-xs font-light text-gray-300">
+              <li><a href="#" class="hover:text-regal-gold transition">Track Your Courier</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Global Insured Shipping</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Returns & Alterations</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Bespoke Size Consultation</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Bridal Trunk Shows</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Frequently Answered</a></li>
             </ul>
           </div>
 
-          <!-- Column 4 -->
+          <!-- Column 4: About The House -->
           <div>
-            <h4 class="text-xs uppercase tracking-wider font-semibold text-regal-gold mb-3">The Atelier</h4>
-            <ul class="space-y-2 text-xs font-light text-gray-300">
-              <li><a href="#story" class="hover:text-regal-gold transition">Heritage Legacy</a></li>
-              <li><a href="#footer" class="hover:text-regal-gold transition">Mumbai Flagship</a></li>
-              <li><a href="#footer" class="hover:text-regal-gold transition">Artisan Welfare</a></li>
-              <li><a href="#footer" class="hover:text-regal-gold transition">Private Suites</a></li>
+            <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-regal-gold mb-4">The Atelier</h4>
+            <ul class="space-y-2.5 text-xs font-light text-gray-300">
+              <li><a href="#story" class="hover:text-regal-gold transition">The ZOHRA Foundation</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Flagship Salons</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Private Bridal Suites</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Press & Global Vogue</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Career at ZOHRA</a></li>
+              <li><a href="#" class="hover:text-regal-gold transition">Sustainability Index</a></li>
             </ul>
           </div>
 
@@ -1158,29 +1369,72 @@
 
       </div>
 
-      <!-- Copyright Bar -->
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400 font-light">
-        <p>&copy; 2026 ZOHRA Heritage &amp; Couture Atelier. All rights reserved.</p>
-        <div class="flex items-center gap-3 text-lg text-gray-400">
-          <i class="fa-brands fa-cc-visa"></i>
-          <i class="fa-brands fa-cc-mastercard"></i>
-          <i class="fa-brands fa-cc-amex"></i>
-          <span class="text-[10px] font-semibold border border-gray-500 rounded px-1">UPI</span>
+      <!-- Bottom Bar: Copyright & Payment Badges -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-light">
+        <div>
+          &copy; 2026 ZOHRA Heritage &amp; Couture Atelier Ltd. All sovereign rights reserved.
+        </div>
+        
+        <!-- Payment Badges -->
+        <div class="flex items-center gap-3 text-xl text-gray-300">
+          <span class="text-[10px] uppercase tracking-wider text-regal-gold mr-1">Secured By</span>
+          <i class="fa-brands fa-cc-visa hover:text-white transition" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard hover:text-white transition" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-amex hover:text-white transition" title="American Express"></i>
+          <i class="fa-brands fa-apple-pay text-2xl hover:text-white transition" title="Apple Pay"></i>
+          <span class="text-[10px] font-bold border border-gray-500 rounded px-1.5 py-0.5">UPI</span>
         </div>
       </div>
 
     </div>
   </footer>
 
+
   <!-- ======================================================== -->
-  <!-- MINI CART DRAWER                                         -->
+  <!-- SLIDE-OUT FAVORITES / WISHLIST DRAWER                     -->
+  <!-- ======================================================== -->
+  <div id="wishlistOverlay" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="wishlistDrawer" class="fixed top-0 right-0 w-full sm:w-96 max-w-full h-full bg-regal-ivory z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col justify-between">
+    
+    <!-- Wishlist Header -->
+    <div class="p-5 border-b border-regal-sand flex items-center justify-between bg-regal-cream">
+      <div>
+        <h3 class="font-serif text-lg font-bold text-regal-emerald">Saved Masterpieces</h3>
+        <p class="text-[10px] uppercase tracking-widest text-regal-gold">Your Personal Favorites Vault</p>
+      </div>
+      <button id="closeWishlistDrawer" class="text-regal-emerald hover:text-regal-gold text-2xl p-1" aria-label="Close Favorites">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Wishlist Items List -->
+    <div id="wishlistItemsContainer" class="p-5 overflow-y-auto flex-1 space-y-4">
+      <!-- Dynamic favorites rendered via JavaScript -->
+    </div>
+
+    <!-- Wishlist Footer -->
+    <div class="p-5 bg-regal-cream border-t border-regal-sand space-y-3">
+      <button id="addAllFavsToCartBtn" class="w-full bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-[0.2em] font-semibold py-3.5 rounded transition shadow-md flex items-center justify-center gap-2">
+        <i class="fa-solid fa-bag-shopping text-xs text-regal-lightGold"></i>
+        <span>Move All Favorites to Bag</span>
+      </button>
+      <p class="text-[10px] text-center text-regal-muted">
+        Saved items remain preserved in your session.
+      </p>
+    </div>
+  </aside>
+
+
+  <!-- ======================================================== -->
+  <!-- SLIDE-OUT MINI CART DRAWER                               -->
   <!-- ======================================================== -->
   <div id="cartOverlay" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
   <aside id="cartDrawer" class="fixed top-0 right-0 w-full sm:w-96 max-w-full h-full bg-regal-ivory z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col justify-between">
     
+    <!-- Drawer Header -->
     <div class="p-5 border-b border-regal-sand flex items-center justify-between bg-regal-cream">
       <div>
-        <h3 class="font-serif text-lg font-bold text-regal-emerald">Your Bag</h3>
+        <h3 class="font-serif text-lg font-bold text-regal-emerald">Your Sovereign Bag</h3>
         <p class="text-[10px] uppercase tracking-widest text-regal-gold">Complimentary Luxury Box Packaging</p>
       </div>
       <button id="closeCartDrawer" class="text-regal-emerald hover:text-regal-gold text-2xl p-1" aria-label="Close Bag">
@@ -1188,10 +1442,27 @@
       </button>
     </div>
 
+    <!-- Drawer Items List -->
     <div id="cartItemsContainer" class="p-5 overflow-y-auto flex-1 space-y-4">
-      <!-- Injected dynamically -->
+      <!-- Default Sample Item -->
+      <div class="cart-item flex gap-4 pb-4 border-b border-regal-sand/60 items-center" data-id="prod-1">
+        <img 
+          src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=200&q=80" 
+          alt="Product thumbnail" 
+          class="w-16 h-20 object-cover rounded border border-regal-sand"
+        />
+        <div class="flex-1">
+          <h4 class="font-serif text-sm font-semibold text-regal-emerald">Noor-e-Benares Katan Saree</h4>
+          <p class="text-xs text-regal-gold font-bold mt-0.5">₹46,500</p>
+          <div class="flex items-center justify-between mt-2">
+            <span class="text-[11px] text-regal-muted">Qty: 1</span>
+            <button class="remove-cart-item text-xs text-red-700 hover:underline">Remove</button>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- Drawer Footer -->
     <div class="p-5 bg-regal-cream border-t border-regal-sand space-y-4">
       <div class="space-y-1 text-xs">
         <div class="flex justify-between text-regal-muted">
@@ -1199,8 +1470,8 @@
           <span id="cartSubtotal" class="font-semibold text-regal-emerald">₹46,500</span>
         </div>
         <div class="flex justify-between text-regal-muted">
-          <span>Courier Shipping</span>
-          <span class="text-emerald-700 font-medium uppercase">Complimentary</span>
+          <span>Express Courier</span>
+          <span class="text-emerald-700 font-semibold uppercase">Complimentary</span>
         </div>
         <div class="flex justify-between text-sm font-bold text-regal-emerald pt-2 border-t border-regal-sand">
           <span>Total Estimate</span>
@@ -1208,123 +1479,231 @@
         </div>
       </div>
 
-      <button id="checkoutBtn" class="w-full bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold py-3.5 rounded transition shadow-sm flex items-center justify-center gap-2">
+      <button id="checkoutBtn" class="w-full bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-[0.2em] font-semibold py-3.5 rounded transition shadow-md flex items-center justify-center gap-2">
         <i class="fa-solid fa-lock text-xs text-regal-lightGold"></i>
-        <span>Proceed to Checkout</span>
+        <span>Proceed to Secure Checkout</span>
       </button>
+
+      <p class="text-[10px] text-center text-regal-muted">
+        Insured delivery with hallmark purity guarantee certificate.
+      </p>
     </div>
   </aside>
 
-  <!-- ======================================================== -->
-  <!-- WISHLIST / FAVORITES DRAWER                              -->
-  <!-- ======================================================== -->
-  <div id="wishlistOverlay" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  <aside id="wishlistDrawer" class="fixed top-0 right-0 w-full sm:w-96 max-w-full h-full bg-regal-ivory z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col justify-between">
-    
-    <div class="p-5 border-b border-regal-sand flex items-center justify-between bg-regal-cream">
-      <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-full bg-regal-emerald/10 flex items-center justify-center text-regal-emerald">
-          <i class="fa-solid fa-heart text-sm text-regal-gold"></i>
-        </div>
-        <div>
-          <h3 class="font-serif text-lg font-bold text-regal-emerald">Saved Favorites</h3>
-          <p class="text-[10px] uppercase tracking-widest text-regal-gold">Personal Bridal &amp; Festive Wishlist</p>
-        </div>
-      </div>
-      <button id="closeWishlistDrawer" class="text-regal-emerald hover:text-regal-gold text-2xl p-1" aria-label="Close Wishlist">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
+  <!-- Interactive Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 bg-regal-deepGreen border border-regal-gold text-white px-5 py-3 rounded shadow-2xl flex items-center gap-3 translate-y-24 opacity-0 transition-all duration-300">
+    <i class="fa-solid fa-circle-check text-regal-gold text-base"></i>
+    <span id="toastMessage" class="text-xs font-medium tracking-wide">Item added to your Sovereign Bag.</span>
+  </div>
 
-    <!-- Wishlist items container -->
-    <div id="wishlistItemsContainer" class="p-5 overflow-y-auto flex-1 space-y-4">
-      <!-- Injected dynamically via JS -->
-    </div>
-
-    <!-- Footer actions of Wishlist -->
-    <div class="p-5 bg-regal-cream border-t border-regal-sand space-y-3">
-      <div class="flex items-center justify-between text-xs text-regal-muted">
-        <span>Saved Items</span>
-        <span id="wishlistSummaryCount" class="font-semibold text-regal-emerald">2 Items</span>
-      </div>
-      <button id="moveAllToCartBtn" class="w-full bg-regal-emerald hover:bg-regal-gold text-white text-xs uppercase tracking-wider font-semibold py-3 rounded transition flex items-center justify-center gap-2">
-        <i class="fa-solid fa-bag-shopping text-xs text-regal-lightGold"></i>
-        <span>Move All to Bag</span>
-      </button>
-    </div>
-  </aside>
 
   <!-- ======================================================== -->
-  <!-- JAVASCRIPT: CLEAN ARCHITECTURE & LOGIC                   -->
+  <!-- JAVASCRIPT: LOGIC & FUNCTIONALITY                        -->
   <!-- ======================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      
+      // ----------------------------------------------------
+      // 1. MOBILE DRAWER NAVIGATION
+      // ----------------------------------------------------
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const closeMobileDrawer = document.getElementById('closeMobileDrawer');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileDrawerOverlay = document.getElementById('mobileDrawerOverlay');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openMenu() {
+        mobileDrawer.classList.remove('-translate-x-full');
+        mobileDrawerOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeMenu() {
+        mobileDrawer.classList.add('-translate-x-full');
+        mobileDrawerOverlay.classList.add('opacity-0', 'pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      mobileMenuBtn?.addEventListener('click', openMenu);
+      closeMobileDrawer?.addEventListener('click', closeMenu);
+      mobileDrawerOverlay?.addEventListener('click', closeMenu);
+      mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+      // Mobile Search Toggle
+      const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+      const mobileSearchBar = document.getElementById('mobileSearchBar');
+      mobileSearchBtn?.addEventListener('click', () => {
+        mobileSearchBar.classList.toggle('hidden');
+      });
 
       // ----------------------------------------------------
-      // 5. WISHLIST / FAVORITES SYSTEM WITH SLIDE-OUT DRAWER
+      // 2. PART B: MUGHAL ARCH ACTIVE TABS LOGIC
+      // ----------------------------------------------------
+      const tabs = document.querySelectorAll('.category-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => {
+            t.classList.remove('bg-regal-emerald', 'text-white', 'border-b-2', 'border-regal-gold', 'shadow-arch', '-translate-y-1');
+            t.classList.add('bg-regal-cream', 'text-regal-emerald', 'hover:bg-regal-sand/70');
+            // reset svg inside
+            const svg = t.querySelector('svg');
+            if (svg) svg.classList.add('text-regal-gold/50');
+            if (svg) svg.classList.remove('text-regal-gold');
+          });
+
+          // Set Active
+          tab.classList.remove('bg-regal-cream', 'text-regal-emerald', 'hover:bg-regal-sand/70');
+          tab.classList.add('bg-regal-emerald', 'text-white', 'border-b-2', 'border-regal-gold', 'shadow-arch', '-translate-y-1');
+          const activeSvg = tab.querySelector('svg');
+          if (activeSvg) activeSvg.classList.remove('text-regal-gold/50');
+          if (activeSvg) activeSvg.classList.add('text-regal-gold');
+
+          // Subtle feedback toast
+          const tabName = tab.querySelector('span').innerText;
+          showToast(`Displaying curated edits for "${tabName}"`);
+        });
+      });
+
+      // ----------------------------------------------------
+      // 3. PART C: AUTO-SLIDING BANNER / HERO SLIDER
+      // ----------------------------------------------------
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.slider-dot');
+      const prevBtn = document.getElementById('prevSlide');
+      const nextBtn = document.getElementById('nextSlide');
+      const prevBtnMobile = document.getElementById('prevSlideMobile');
+      const nextBtnMobile = document.getElementById('nextSlideMobile');
+      const sliderWrapper = document.getElementById('sliderWrapper');
+      let currentSlide = 0;
+      let slideInterval = null;
+      const totalSlides = slides.length;
+
+      function goToSlide(index) {
+        slides[currentSlide].classList.remove('opacity-100');
+        slides[currentSlide].classList.add('opacity-0', 'pointer-events-none');
+
+        // Reset all dots
+        dots.forEach(dot => {
+          const isMobileDot = dot.closest('.sm\\:hidden');
+          dot.classList.remove(isMobileDot ? 'w-6' : 'w-8', 'bg-regal-gold');
+          dot.classList.add(isMobileDot ? 'w-2' : 'w-2.5', 'bg-white/40');
+        });
+
+        currentSlide = (index + totalSlides) % totalSlides;
+
+        slides[currentSlide].classList.remove('opacity-0', 'pointer-events-none');
+        slides[currentSlide].classList.add('opacity-100');
+
+        // Highlight matching dots (both desktop and mobile dot sets)
+        document.querySelectorAll(`.slider-dot[data-index="${currentSlide}"]`).forEach(dot => {
+          const isMobileDot = dot.closest('.sm\\:hidden');
+          dot.classList.remove(isMobileDot ? 'w-2' : 'w-2.5', 'bg-white/40');
+          dot.classList.add(isMobileDot ? 'w-6' : 'w-8', 'bg-regal-gold');
+        });
+      }
+
+      function startAutoSlide() {
+        if (slideInterval) clearInterval(slideInterval);
+        slideInterval = setInterval(() => {
+          goToSlide(currentSlide + 1);
+        }, 4000);
+      }
+
+      function stopAutoSlide() {
+        if (slideInterval) clearInterval(slideInterval);
+      }
+
+      nextBtn?.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+        startAutoSlide();
+      });
+
+      prevBtn?.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+        startAutoSlide();
+      });
+
+      nextBtnMobile?.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+        startAutoSlide();
+      });
+
+      prevBtnMobile?.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+        startAutoSlide();
+      });
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const idx = parseInt(dot.getAttribute('data-index'), 10);
+          goToSlide(idx);
+          startAutoSlide();
+        });
+      });
+
+      // Pause slider on hover for enhanced user experience
+      sliderWrapper?.addEventListener('mouseenter', stopAutoSlide);
+      sliderWrapper?.addEventListener('mouseleave', startAutoSlide);
+
+      // Initialize auto-sliding
+      startAutoSlide();
+
+      // ----------------------------------------------------
+      // 4. PART E: PRODUCT FILTER PILLS
+      // ----------------------------------------------------
+      const filterBtns = document.querySelectorAll('.product-filter-btn');
+      const productCards = document.querySelectorAll('.product-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-regal-emerald', 'text-white');
+            b.classList.add('bg-white', 'text-regal-emerald');
+          });
+          btn.classList.remove('bg-white', 'text-regal-emerald');
+          btn.classList.add('bg-regal-emerald', 'text-white');
+
+          const filterVal = btn.getAttribute('data-filter');
+
+          productCards.forEach(card => {
+            const badge = card.getAttribute('data-badge');
+            if (filterVal === 'all' || badge === filterVal) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // ----------------------------------------------------
+      // 5. WISHLIST / FAVORITES SIDEBAR DRAWER LOGIC
       // ----------------------------------------------------
       const wishlistHeaderBtn = document.getElementById('wishlistHeaderBtn');
-      const mobileWishlistBtn = document.getElementById('mobileWishlistBtn');
+      const closeWishlistDrawer = document.getElementById('closeWishlistDrawer');
       const wishlistDrawer = document.getElementById('wishlistDrawer');
       const wishlistOverlay = document.getElementById('wishlistOverlay');
-      const closeWishlistDrawer = document.getElementById('closeWishlistDrawer');
       const wishlistItemsContainer = document.getElementById('wishlistItemsContainer');
       const wishlistCountBadge = document.getElementById('wishlistCountBadge');
-      const mobileWishlistBadge = document.getElementById('mobileWishlistBadge');
-      const wishlistSummaryCount = document.getElementById('wishlistSummaryCount');
-      const moveAllToCartBtn = document.getElementById('moveAllToCartBtn');
       const wishlistBtns = document.querySelectorAll('.wishlist-btn');
+      const addAllFavsToCartBtn = document.getElementById('addAllFavsToCartBtn');
 
-      // Product catalog lookup data for accurate wishlist cards
-      const productCatalog = {
-        'prod-1': {
-          id: 'prod-1',
-          title: 'Noor-e-Benares Katan Saree',
-          price: 46500,
-          img: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80',
-          badge: 'Bestseller'
-        },
-        'prod-2': {
-          id: 'prod-2',
-          title: 'Gulrukh Silk Anarkali Set',
-          price: 32500,
-          img: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=700&q=80',
-          badge: 'Handcrafted'
-        },
-        'prod-3': {
+      // Initial active favorites matching default UI state (Product 3 and Product 6)
+      let wishlistItems = [
+        {
           id: 'prod-3',
           title: 'Shehzadi Velvet Bridal Lehenga',
           price: 155000,
-          img: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=700&q=80',
-          badge: 'Limited Edition'
+          img: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=200&q=80',
+          desc: 'Hand-embroidered marori borders, beaten gold tilla, and double dupatta.'
         },
-        'prod-4': {
-          id: 'prod-4',
-          title: 'Mumtaz Tissue Odhani Dupatta',
-          price: 19800,
-          img: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=700&q=80',
-          badge: 'Bestseller'
-        },
-        'prod-5': {
-          id: 'prod-5',
-          title: 'Jahanara Zari Mojari Slippers',
-          price: 8900,
-          img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80',
-          badge: 'Handcrafted'
-        },
-        'prod-6': {
+        {
           id: 'prod-6',
           title: 'Darbar Handspun Pashmina Shawl',
           price: 64000,
-          img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80',
-          badge: 'Limited Edition'
+          img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
+          desc: 'Sozni hand needlework woven over four seasonal cycles in Kashmir Valley.'
         }
-      };
-
-      // Default active favorites matching prod-3 and prod-6 pre-selected in HTML
-      let wishlistItems = [
-        productCatalog['prod-3'],
-        productCatalog['prod-6']
       ];
 
       function openWishlist() {
@@ -1340,183 +1719,130 @@
       }
 
       wishlistHeaderBtn?.addEventListener('click', openWishlist);
-      mobileWishlistBtn?.addEventListener('click', () => {
-        closeMenu();
-        openWishlist();
-      });
       closeWishlistDrawer?.addEventListener('click', closeWishlist);
       wishlistOverlay?.addEventListener('click', closeWishlist);
-
-      function updateWishlistCardHearts() {
-        wishlistBtns.forEach(btn => {
-          const id = btn.getAttribute('data-id');
-          const heartIcon = btn.querySelector('i');
-          const isFavorited = wishlistItems.some(item => item.id === id);
-
-          if (isFavorited) {
-            btn.classList.add('active');
-            heartIcon.classList.remove('fa-regular');
-            heartIcon.classList.add('fa-solid', 'text-red-600');
-          } else {
-            btn.classList.remove('active');
-            heartIcon.classList.remove('fa-solid', 'text-red-600');
-            heartIcon.classList.add('fa-regular');
-          }
-        });
-      }
 
       function renderWishlist() {
         if (!wishlistItemsContainer) return;
 
-        const count = wishlistItems.length;
-        if (wishlistCountBadge) wishlistCountBadge.innerText = count;
-        if (mobileWishlistBadge) mobileWishlistBadge.innerText = count;
-        if (wishlistSummaryCount) wishlistSummaryCount.innerText = `${count} ${count === 1 ? 'Item' : 'Items'}`;
-
-        if (count === 0) {
+        if (wishlistItems.length === 0) {
           wishlistItemsContainer.innerHTML = `
-            <div class="text-center py-14 px-4 text-regal-muted">
-              <div class="w-14 h-14 mx-auto rounded-full bg-regal-cream border border-regal-sand flex items-center justify-center text-regal-gold mb-3">
-                <i class="fa-regular fa-heart text-2xl"></i>
-              </div>
-              <p class="font-serif text-base text-regal-emerald font-semibold">Your Wishlist is Empty</p>
-              <p class="text-xs text-regal-muted mt-1 max-w-xs mx-auto">Explore our royal weaves and tap the heart on any masterpiece to save it here.</p>
-              <a href="#products" id="exploreFromWishlist" class="inline-block mt-4 px-5 py-2.5 bg-regal-emerald text-white text-xs uppercase tracking-wider font-semibold rounded hover:bg-regal-gold transition">
-                Explore Masterpieces
-              </a>
+            <div class="text-center py-12 text-regal-muted">
+              <i class="fa-regular fa-heart text-4xl text-regal-sand mb-3"></i>
+              <p class="font-serif text-base text-regal-emerald">Your Wishlist is empty.</p>
+              <p class="text-xs text-regal-muted mt-1">Tap the heart icon on any creation to save it here.</p>
             </div>
           `;
-          const exploreBtn = document.getElementById('exploreFromWishlist');
-          exploreBtn?.addEventListener('click', closeWishlist);
-          if (moveAllToCartBtn) {
-            moveAllToCartBtn.disabled = true;
-            moveAllToCartBtn.classList.add('opacity-50', 'cursor-not-allowed');
-          }
         } else {
-          if (moveAllToCartBtn) {
-            moveAllToCartBtn.disabled = false;
-            moveAllToCartBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-          }
-
           wishlistItemsContainer.innerHTML = wishlistItems.map(item => `
-            <div class="wishlist-item group flex gap-3.5 p-3 rounded-lg border border-regal-sand/70 bg-white hover:border-regal-gold/50 transition">
-              <div class="relative w-16 h-20 rounded overflow-hidden shrink-0 bg-regal-sand/20">
-                <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
-              </div>
-              <div class="flex-1 flex flex-col justify-between">
-                <div>
-                  <div class="flex items-start justify-between gap-1">
-                    <h4 class="font-serif text-xs font-semibold text-regal-emerald leading-snug">${item.title}</h4>
-                    <button class="remove-wishlist-item text-regal-muted hover:text-red-600 transition p-1" data-id="${item.id}" title="Remove from favorites">
-                      <i class="fa-solid fa-xmark text-xs"></i>
-                    </button>
-                  </div>
-                  <p class="text-xs text-regal-gold font-bold mt-1">₹${item.price.toLocaleString('en-IN')}</p>
-                </div>
-                <div class="pt-2 flex items-center gap-2">
-                  <button class="move-single-to-cart flex-1 bg-regal-emerald hover:bg-regal-gold text-white text-[10px] uppercase tracking-wider font-semibold py-1.5 px-2.5 rounded transition flex items-center justify-center gap-1.5" data-id="${item.id}">
-                    <i class="fa-solid fa-bag-shopping text-[10px]"></i>
-                    <span>Move to Bag</span>
+            <div class="fav-item flex gap-4 pb-4 border-b border-regal-sand/60 items-center" data-id="${item.id}">
+              <img src="${item.img}" alt="${item.title}" class="w-16 h-20 object-cover rounded border border-regal-sand"/>
+              <div class="flex-1">
+                <h4 class="font-serif text-sm font-semibold text-regal-emerald">${item.title}</h4>
+                <p class="text-xs text-regal-gold font-bold mt-0.5">₹${item.price.toLocaleString('en-IN')}</p>
+                <div class="flex items-center justify-between mt-2 gap-2">
+                  <button class="add-fav-to-cart text-[11px] bg-regal-emerald hover:bg-regal-gold text-white px-2.5 py-1 rounded transition" data-id="${item.id}">
+                    + Bag
                   </button>
+                  <button class="remove-fav-item text-xs text-red-700 hover:underline" data-id="${item.id}">Remove</button>
                 </div>
               </div>
             </div>
           `).join('');
-
-          // Remove button bindings
-          document.querySelectorAll('.remove-wishlist-item').forEach(btn => {
-            btn.addEventListener('click', () => {
-              const id = btn.getAttribute('data-id');
-              wishlistItems = wishlistItems.filter(i => i.id !== id);
-              renderWishlist();
-              updateWishlistCardHearts();
-            });
-          });
-
-          // Move single item to cart
-          document.querySelectorAll('.move-single-to-cart').forEach(btn => {
-            btn.addEventListener('click', () => {
-              const id = btn.getAttribute('data-id');
-              const item = wishlistItems.find(i => i.id === id);
-              if (item) {
-                const existingIndex = cartItems.findIndex(i => i.id === id);
-                if (existingIndex > -1) {
-                  cartItems[existingIndex].qty += 1;
-                } else {
-                  cartItems.push({
-                    id: item.id,
-                    title: item.title,
-                    price: item.price,
-                    img: item.img,
-                    qty: 1
-                  });
-                }
-                wishlistItems = wishlistItems.filter(i => i.id !== id);
-                renderWishlist();
-                updateWishlistCardHearts();
-                renderCart();
-                closeWishlist();
-                openCart();
-              }
-            });
-          });
         }
+
+        if (wishlistCountBadge) wishlistCountBadge.innerText = wishlistItems.length;
+
+        // Sync grid wishlist heart icons visually
+        wishlistBtns.forEach(btn => {
+          const id = btn.getAttribute('data-id');
+          const isFav = wishlistItems.some(item => item.id === id);
+          const icon = btn.querySelector('i');
+          if (isFav) {
+            btn.classList.add('active');
+            icon.className = 'fa-solid fa-heart text-sm text-red-600';
+          } else {
+            btn.classList.remove('active');
+            icon.className = 'fa-regular fa-heart text-sm';
+          }
+        });
+
+        // Bind Remove Buttons inside Wishlist drawer
+        document.querySelectorAll('.remove-fav-item').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idToRemove = btn.getAttribute('data-id');
+            wishlistItems = wishlistItems.filter(i => i.id !== idToRemove);
+            renderWishlist();
+            showToast('Removed item from your Favorites');
+          });
+        });
+
+        // Bind individual Add to Bag buttons inside Wishlist drawer
+        document.querySelectorAll('.add-fav-to-cart').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            const item = wishlistItems.find(i => i.id === id);
+            if (item) {
+              const existingIndex = cartItems.findIndex(i => i.id === item.id);
+              if (existingIndex > -1) {
+                cartItems[existingIndex].qty += 1;
+              } else {
+                cartItems.push({ id: item.id, title: item.title, price: item.price, img: item.img, qty: 1 });
+              }
+              renderCart();
+              showToast(`Added "${item.title}" to your Bag`);
+            }
+          });
+        });
       }
 
-      // Toggle heart on product grid cards
+      // Wishlist Heart Toggle Buttons in Product Grid
       wishlistBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          e.stopPropagation();
           const id = btn.getAttribute('data-id');
-          const isFavorited = wishlistItems.some(i => i.id === id);
+          const title = btn.getAttribute('data-title');
+          const price = parseInt(btn.getAttribute('data-price'), 10);
+          const img = btn.getAttribute('data-img');
+          const desc = btn.getAttribute('data-desc');
 
-          if (isFavorited) {
-            wishlistItems = wishlistItems.filter(i => i.id !== id);
+          const index = wishlistItems.findIndex(item => item.id === id);
+          if (index > -1) {
+            wishlistItems.splice(index, 1);
+            showToast(`Removed "${title}" from Favorites`);
           } else {
-            const product = productCatalog[id];
-            if (product) {
-              wishlistItems.push(product);
-            }
+            wishlistItems.push({ id, title, price, img, desc });
+            showToast(`Saved "${title}" to Favorites`);
           }
           renderWishlist();
-          updateWishlistCardHearts();
         });
       });
 
-      // Move All to Cart
-      moveAllToCartBtn?.addEventListener('click', () => {
-        if (wishlistItems.length === 0) return;
-
+      // Move all favorites to cart
+      addAllFavsToCartBtn?.addEventListener('click', () => {
+        if (wishlistItems.length === 0) {
+          showToast('Your Wishlist is currently empty.');
+          return;
+        }
         wishlistItems.forEach(item => {
           const existingIndex = cartItems.findIndex(i => i.id === item.id);
           if (existingIndex > -1) {
             cartItems[existingIndex].qty += 1;
           } else {
-            cartItems.push({
-              id: item.id,
-              title: item.title,
-              price: item.price,
-              img: item.img,
-              qty: 1
-            });
+            cartItems.push({ id: item.id, title: item.title, price: item.price, img: item.img, qty: 1 });
           }
         });
-
-        wishlistItems = [];
-        renderWishlist();
-        updateWishlistCardHearts();
         renderCart();
         closeWishlist();
         openCart();
+        showToast('Moved all saved masterpieces to your Sovereign Bag.');
       });
 
-      // Initialize wishlist state & buttons
+      // Initial render of Wishlist
       renderWishlist();
-      updateWishlistCardHearts();
 
       // ----------------------------------------------------
-      // 6. MINI-CART DRAWER
+      // 6. MINI-CART DRAWER & CART MANAGEMENT
       // ----------------------------------------------------
       const cartDrawerBtn = document.getElementById('cartDrawerBtn');
       const closeCartDrawer = document.getElementById('closeCartDrawer');
@@ -1561,26 +1887,28 @@
         if (cartItems.length === 0) {
           cartItemsContainer.innerHTML = `
             <div class="text-center py-12 text-regal-muted">
-              <i class="fa-solid fa-bag-shopping text-3xl text-regal-sand mb-2 block"></i>
-              <p class="font-serif text-sm text-regal-emerald">Your bag is currently empty.</p>
+              <i class="fa-solid fa-bag-shopping text-4xl text-regal-sand mb-3"></i>
+              <p class="font-serif text-base text-regal-emerald">Your bag is currently empty.</p>
+              <p class="text-xs text-regal-muted mt-1">Explore our royal creations to begin.</p>
             </div>
           `;
         } else {
           cartItemsContainer.innerHTML = cartItems.map(item => `
-            <div class="cart-item flex gap-3 pb-3 border-b border-regal-sand/60 items-center">
-              <img src="${item.img}" alt="${item.title}" class="w-14 h-18 object-cover rounded border border-regal-sand"/>
+            <div class="cart-item flex gap-4 pb-4 border-b border-regal-sand/60 items-center">
+              <img src="${item.img}" alt="${item.title}" class="w-16 h-20 object-cover rounded border border-regal-sand"/>
               <div class="flex-1">
-                <h4 class="font-serif text-xs font-semibold text-regal-emerald">${item.title}</h4>
+                <h4 class="font-serif text-sm font-semibold text-regal-emerald">${item.title}</h4>
                 <p class="text-xs text-regal-gold font-bold mt-0.5">₹${item.price.toLocaleString('en-IN')}</p>
-                <div class="flex items-center justify-between mt-1 text-[11px] text-regal-muted">
-                  <span>Qty: ${item.qty}</span>
-                  <button class="remove-cart-item text-red-700 hover:underline" data-id="${item.id}">Remove</button>
+                <div class="flex items-center justify-between mt-2">
+                  <span class="text-[11px] text-regal-muted">Qty: ${item.qty}</span>
+                  <button class="remove-cart-item text-xs text-red-700 hover:underline" data-id="${item.id}">Remove</button>
                 </div>
               </div>
             </div>
           `).join('');
         }
 
+        // Calculate totals
         const totalAmount = cartItems.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
         const totalCount = cartItems.reduce((acc, curr) => acc + curr.qty, 0);
 
@@ -1588,16 +1916,18 @@
         if (cartSubtotal) cartSubtotal.innerText = `₹${totalAmount.toLocaleString('en-IN')}`;
         if (cartTotal) cartTotal.innerText = `₹${totalAmount.toLocaleString('en-IN')}`;
 
+        // Bind Remove Buttons
         document.querySelectorAll('.remove-cart-item').forEach(btn => {
           btn.addEventListener('click', () => {
             const idToRemove = btn.getAttribute('data-id');
             cartItems = cartItems.filter(i => i.id !== idToRemove);
             renderCart();
+            showToast('Item removed from your Bag');
           });
         });
       }
 
-      // Add to Bag smoothly without intrusive alert popups
+      // Add to Cart Buttons
       addToCartBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           const id = btn.getAttribute('data-id');
@@ -1613,24 +1943,42 @@
           }
 
           renderCart();
-          openCart(); // Smoothly open the drawer directly without any popups
+          showToast(`Added "${title}" to your Bag`);
+          openCart();
         });
       });
 
+      // Initial Cart Render & bind initial remove
       renderCart();
 
+      // Checkout Handler
       checkoutBtn?.addEventListener('click', () => {
-        if (cartItems.length > 0) {
-          // Native clean interaction without popups
-          checkoutBtn.innerText = "Redirecting to Checkout...";
-          setTimeout(() => {
-            checkoutBtn.innerHTML = '<i class="fa-solid fa-lock text-xs text-regal-lightGold"></i><span>Proceed to Checkout</span>';
-          }, 1200);
+        if (cartItems.length === 0) {
+          showToast('Please add items to your bag before checking out.');
+          return;
         }
+        showToast('Initiating encrypted payment gateway...');
       });
 
       // ----------------------------------------------------
-      // 7. LIVE SEARCH INPUT FILTER
+      // 7. TOAST NOTIFICATION SYSTEM
+      // ----------------------------------------------------
+      const toast = document.getElementById('toastNotification');
+      const toastMessage = document.getElementById('toastMessage');
+      let toastTimeout = null;
+
+      function showToast(msg) {
+        if (!toast) return;
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastMessage.innerText = msg;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toastTimeout = setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0');
+        }, 3200);
+      }
+
+      // ----------------------------------------------------
+      // 8. LIVE SEARCH FILTER BEHAVIOR
       // ----------------------------------------------------
       const desktopSearch = document.getElementById('desktopSearchInput');
       const mobileSearch = document.getElementById('mobileSearchInput');
